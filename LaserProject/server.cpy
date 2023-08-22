@@ -1,33 +1,33 @@
-import os
-from werkzeug.security import safe_join
-from flask import *
+⨡ os
+⮌ werkzeug.security ⨡ safe_join
+⮌ flask ⨡ *
 
-class Reply:
-    def __getattr__(self, name):
+cls Reply:
+    ⊢ __getattr__(𝕊, name):
         match name:
             case "ok":
-                return Response(status=200)
+                ↪ Response(status=200)
             case "error404":
-                return jsonify({'error': 'Not found'}), 404
+                ↪ jsonify({'error': 'Not found'}), 404
             case "errorCringe":
-                return jsonify({'error': 'L+ratio+you fell off'}), 500
+                ↪ jsonify({'error': 'L+ratio+you fell off'}), 500
 Reply = Reply()
 
 app = Flask(__name__)
 
-@app.route('/', defaults={'path': ''})
+@app.route(/❟, defaults={'path': ᐦ})
 @app.route('/<path:path>')
-def route(path):
-    if path in "/":
+⊢ route(path):
+    ¿ path ∈ /❟:
         path = "index.html"
     path = safe_join(app.static_folder, path)
-    if path is None:
-        return Reply.errorCringe
-    if os.path.isfile(path):
-        return send_file(path)
-    elif os.path.isdir(path):
-        return jsonify(os.path.listdir(path))
-    return Reply.error404
+    ¿ path is None:
+        ↪ Reply.errorCringe
+    ¿ os.path.isfile(path):
+        ↪ send_file(path)
+    ⸘ os.path.isdir(path):
+        ↪ jsonify(os.path.listdir(path))
+    ↪ Reply.error404
 
-if __name__ == '__main__':
+¿ __name__ ≡ '__main__':
     app.run(host='0.0.0.0', port='8000')

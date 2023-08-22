@@ -6,7 +6,7 @@
 
 # ADD reduce
 
-CPYTH=$(realpath "$(dirname $0)/..")
+CPYTH="$(readlink -m "$0/..")"
 
 set -e
 for file in $(find . -name '*.cpy'); do
@@ -34,5 +34,4 @@ for file in $(find . -name '*.cpy'); do
 
 done
 echo "Compiled."
-
-[ $# -eq 0 ] || "python" "$@"
+[ $# -eq 0 ] || "$CPYTH/bin/cpy_binary" "$@"
