@@ -35,4 +35,4 @@ for file in $(find . -name '*.cpy'); do
 done
 echo "Compiled."
 
-[ $# -eq 0 ] || "$CPYTH/bin/cpy_binary" "$@"
+[ $# -eq 0 ] || "python" "$@"

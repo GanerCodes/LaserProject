@@ -1,9 +1,13 @@
 #!/bin/sh
 
-# Designed to run in the "Example" directory
-set -e
+set -e ; cd "${0%/*}"
+
+WEBTEMPLATER_PATH="$(realpath ./Building/site_builder/site_builder)"
+CPY_PATH="$(realpath ./Building/cpy/cpy_tool)"
+
 rm -r ./dest || :
-../site_builder/site_builder ./Site ./dest
+sh "${WEBTEMPLATER_PATH}" ./LaserProject ./dest
 cd dest
+
 clear
-python ./server.py
+sh "${CPY_PATH}" ./server.cpy
