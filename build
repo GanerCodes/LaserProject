@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Designed to run in the "Example" directory
+set -e
+rm -r ./dest || :
+../site_builder/site_builder ./Site ./dest
+cd dest
+clear
+python ./server.py
