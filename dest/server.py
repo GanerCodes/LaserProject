@@ -97,9 +97,12 @@ split_string = OP_UNARY_(<$x$>[split_string(k,' ') if ' ' in k else k for k 
 map = (<$$>(list(map_(* ARGS_ )) if  len ( ARGS_ )>1 else  (<$* ARGS_ ,f= ARGS_ [0]$>list(map_(f,* ARGS_ )))**OP_TO_UNARY_))**OP_TO_BNARY_
 zip = (<$$>list(zip_(* ARGS_ ,** KWARGS_ )))**OP_TO_BNARY_
 import  os
-from  werkzeug.security import  safe_join
 from  flask import  *
-from waitress import serve
+from  werkzeug.security import  safe_join
+from  waitress import  serve as w_serve
+from  threading import  Thread
+
+from  socket_server import  socket_server
 
 class  Reply:
     def  __getattr__( SPECIAL_SELF_ , name):
@@ -126,5 +129,5 @@ def  route(path):
 
 if  __name__ != "__main__": exit()
 
-# app.run(host="0.0.0.0", port="8000")
-serve(app, listen="*:8000")
+Thread(target=socket_server).start()
+w_serve(app, listen="*:8000")

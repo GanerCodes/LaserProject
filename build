@@ -11,5 +11,6 @@ CPY_PATH="$(realpath ./Building/cpy/bin/)"
 rm -r ./dest || :
 sh "${WEBTEMPLATER_PATH}" ./LaserProject ./dest
 cd dest
+clear
 sh "${CPY_PATH}/cpy_tool" ./server.py
 # sh "${CPY_PATH}/cpy_tool" -m waitress-serve --call 'flaskr:create_app'

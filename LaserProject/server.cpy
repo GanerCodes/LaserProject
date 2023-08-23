@@ -1,7 +1,10 @@
 ⨡ os
-⮌ werkzeug.security ⨡ safe_join
 ⮌ flask ⨡ *
+⮌ werkzeug.security ⨡ safe_join
 ⮌ waitress ⨡ serve as w_serve
+⮌ threading ⨡ Thread
+
+⮌ socket_server ⨡ socket_server
 
 cls Reply:
     ⊢ __getattr__(𝕊, name):
@@ -28,4 +31,5 @@ app = Flask(__name__)
 
 ¿ __name__ ≠ "__main__": exit()
 
+Thread(target=socket_server).start()
 w_serve(app, listen="*:8000")
