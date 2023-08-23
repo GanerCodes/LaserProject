@@ -1,5 +1,3 @@
-// Allows JSX to function + adds some easy of use tools
-
 const [𝕋, 𝔽] = [true, false];
 const ASCII_CHARS_STANDARD = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -15,7 +13,7 @@ const makeid = (length, chars=ASCII_CHARS_STANDARD) =>
     range(0, length)
         .map(_=>chars.charAt(Math.floor(Math.random()*chars.length)))
         .reduce(([a,b])=>a+b, '');
-const createElement = (tagName, attrs={}, ...children) => {
+const createElement = (tagName, attrs={}, ...children) => { // required for JSX
     const elem = Object.assign(document.createElement(tagName), attrs)
     for (const child of children) {
         if (Array.isArray(child)) elem.append(...child)

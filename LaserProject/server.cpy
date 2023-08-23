@@ -1,6 +1,7 @@
 ⨡ os
 ⮌ werkzeug.security ⨡ safe_join
 ⮌ flask ⨡ *
+⮌ waitress ⨡ serve as w_serve
 
 cls Reply:
     ⊢ __getattr__(𝕊, name):
@@ -27,4 +28,4 @@ app = Flask(__name__)
 
 ¿ __name__ ≠ "__main__": exit()
 
-app.run(host="0.0.0.0", port="8000")
+w_serve(app, listen="*:8000")

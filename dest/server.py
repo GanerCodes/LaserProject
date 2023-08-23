@@ -99,6 +99,7 @@ zip = (<$$>list(zip_(* ARGS_ ,** KWARGS_ )))**OP_TO_BNARY_
 import  os
 from  werkzeug.security import  safe_join
 from  flask import  *
+from waitress import serve
 
 class  Reply:
     def  __getattr__( SPECIAL_SELF_ , name):
@@ -106,27 +107,24 @@ class  Reply:
             case "ok":
                 return  Response(status=200)
             case "error404":
-                return  jsonify({'error': 'Not found'}), 404
+                return  jsonify({"error": "Not found"}), 404
             case "errorCringe":
-                return  jsonify({'error': 'L+ratio+you fell off'}), 500
+                return  jsonify({"error": "L+ratio+you fell off"}), 500
 Reply = Reply()
 
 app = Flask(__name__)
 
-@app.route("/", defaults={'path': EMPTY_STRING })
-@app.route('/<path:path>')
+@app.route("/", defaults={"path": EMPTY_STRING })
+@app.route("/<path:path>")
 def  route(path):
-    if  path in  "/":
-        path = "index.html"
+    if  path in  "/": path = "index.html"
     path = safe_join(app.static_folder, path)
-    if  path == None :
-        return  Reply.errorCringe
-    if  os.path.isfile(path):
-        return  send_file(path)
-    elif  os.path.isdir(path):
-        return  jsonify(os.path.listdir(path))
+    if  path == None : return  Reply.errorCringe
+    if  os.path.isfile(path): return  send_file(path)
+    elif  os.path.isdir(path): return  jsonify(os.path.listdir(path))
     return  Reply.error404
 
-if  __name__ != '__main__': exit()
+if  __name__ != "__main__": exit()
 
-app.run(host='0.0.0.0', port='8000')
+# app.run(host="0.0.0.0", port="8000")
+serve(app, listen="*:8000")
