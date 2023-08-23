@@ -5,7 +5,7 @@ cls Socket_Server:
     ⊢ socket_server(𝕊):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind(("127.0.0.1", 🢖PORT_B))
-
+        
         ➰𝕋:
             data, addr = sock.recvfrom(1024)
             S, T = int|ᴍ|data.split(:❟,1)
