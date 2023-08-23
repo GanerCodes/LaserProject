@@ -18,10 +18,10 @@ app = Flask(__name__)
 @app.route(/❟, defaults={'path': ᐦ})
 @app.route('/<path:path>')
 ⊢ route(path):
-    ¿ path ∈ /❟:
+    ¿ path ∈ "/":
         path = "index.html"
     path = safe_join(app.static_folder, path)
-    ¿ path is None:
+    ¿ path ≡ □:
         ↪ Reply.errorCringe
     ¿ os.path.isfile(path):
         ↪ send_file(path)
@@ -29,5 +29,6 @@ app = Flask(__name__)
         ↪ jsonify(os.path.listdir(path))
     ↪ Reply.error404
 
-¿ __name__ ≡ '__main__':
-    app.run(host='0.0.0.0', port='8000')
+¿ __name__ ≠ '__main__': exit()
+
+app.run(host='0.0.0.0', port='8000')

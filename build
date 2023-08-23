@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# note: cpython fork uses branch 3.12
+# note: cpy (cpython fork) uses branch 3.12
 
 set -e ; cd "${0%/*}"
 

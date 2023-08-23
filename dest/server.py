@@ -119,7 +119,7 @@ def  route(path):
     if  path in  "/":
         path = "index.html"
     path = safe_join(app.static_folder, path)
-    if  path is None:
+    if  path == None :
         return  Reply.errorCringe
     if  os.path.isfile(path):
         return  send_file(path)
@@ -127,5 +127,6 @@ def  route(path):
         return  jsonify(os.path.listdir(path))
     return  Reply.error404
 
-if  __name__ == '__main__':
-    app.run(host='0.0.0.0', port='8000')
+if  __name__ != '__main__': exit()
+
+app.run(host='0.0.0.0', port='8000')
