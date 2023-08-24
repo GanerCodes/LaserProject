@@ -7,9 +7,9 @@ CPY_PATH="$(realpath ./Building/cpy/bin/)"
 ln -s "$(realpath ./Building/cpy/cpython-fork/python)" "$CPY_PATH/cpy_binary" || :
 "${CPY_PATH}/cpy_binary" -m pip install -r ./requirements.txt
 
-rm -r ./dest/* || :
+rm -rf ./dest || :
 sh "${WEBTEMPLATER_PATH}" ./LaserProject ./dest
 cd dest
 clear
-sh "${CPY_PATH}/cpy_tool" ./server.py
+sh "${CPY_PATH}/cpy_tool" server.py
 # sh "${CPY_PATH}/cpy_tool" -m waitress-serve --call 'flaskr:create_app'
