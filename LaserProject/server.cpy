@@ -4,7 +4,7 @@
 ⮌ waitress ⨡ serve as w_serve
 ⮌ threading ⨡ Thread
 
-⮌ socket_server ⨡ socket_server
+⮌ game ⨡ Game
 
 cls Reply:
     ⊢ __getattr__(𝕊, name):
@@ -30,6 +30,5 @@ app = Flask(__name__)
     ↪ Reply.error404
 
 ¿ __name__ ≠ "__main__": exit()
-
-Thread(target=socket_server).start()
+game = Game()
 w_serve(app, listen="*:8000")

@@ -4,12 +4,11 @@ cls Socket_Server:
     ADDRESS = "0.0.0.0"
     PORT_B, PORT_R = 7500, 7501
     
-    Sock_B = NET.socket(NET.AF_INET, NET.SOCK_DGRAM)
-    (Sock_R ≔ NET.socket(NET.AF_INET, NET.SOCK_DGRAM)).bind((ADDRESS, PORT_R))
-    Clients = {}
-    
-    ⊢ handle_client_message(𝕊, C, T): # todo
-        🢖transmit(T)
+    ⊢ __init__(𝕊, handler):
+        🢖Sock_B = NET.socket(NET.AF_INET, NET.SOCK_DGRAM)
+        (🢖Sock_R ≔ NET.socket(NET.AF_INET, NET.SOCK_DGRAM)).bind((🢖ADDRESS, 🢖PORT_R))
+        🢖Clients = {}
+        🢖handle_client_message = handler
     
     ⊢ transmit(𝕊, data, target=□):
         ☾⨯🢖Clients
@@ -28,5 +27,3 @@ cls Socket_Server:
                 ☾⨯‹Changed {C}'s IP: {p}→{ip}›
             ☾⨯‹{C}:{T}›
             🢖handle_client_message(C, T)
-
-socket_server = Socket_Server()

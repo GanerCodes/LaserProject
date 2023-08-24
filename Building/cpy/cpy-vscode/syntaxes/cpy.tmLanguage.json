@@ -34,7 +34,7 @@
       "function": {
         "patterns": [{
           "name": "function",
-          "match": "[⋀⋁ΣΠ🃌↕↨⇳⇧⍟⨳⤉⤈]"
+          "match": "[⋀⋁ΣΠℵ🃌↕↨⇳⇧⍟⨳⤉⤈]"
       }]},
       "parameter": {
         "patterns": [{
@@ -78,23 +78,8 @@
             "begin": "'", "end": "'" },
           { "name": "string",
             "begin": "\"", "end": "\"" },
-          { "name": "string",
-            "match": "‹(.*?)›", 
-            "captures": {
-              "0": {
-                "patterns": [{
-                  "name": "control",
-                  "match": "{(({{)*)(.*?)}((}})*)",
-                  "captures": {
-                    "3": {
-                      "patterns": [{
-                        "include": "#everything"
-                      }]
-                    }
-                  }
-                }]
-              }
-            }}
+          { "name": "fstring",
+            "match": "‹|›" }
         ]
       },
       "comment": {

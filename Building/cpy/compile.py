@@ -8,7 +8,7 @@ TRY_SURROUND_SPACE = \
     "∅/set() □/None ᐦ/EMPTY_STRING ∧/and ∨/or ∈/in ∉/not in " \
     "¬/not λ/lambda ⁅/DEGEN_( ⮌/from ⨡/import " \
     "¿/if ¡/else ⸘/elif ∀/for 𝔸/ARGS_ 𝕂/KWARGS_ " \
-    "ℂ/SPECIAL_CLASS_ 𝕊/SPECIAL_SELF_ 🢖/SPECIAL_SELF_."
+    "ℂ/SPECIAL_CLASS_ 𝕊/SPECIAL_SELF_ 🢖/SPECIAL_SELF_. ℕ/Namespace"
 
 STANDARD = \
     "⁆/) ≔/:= ≤/<= ≥/>= ≡/== ≠/!= ¯/- ⋄/`$ " \

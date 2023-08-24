@@ -3,10 +3,12 @@
 ⊢ ASSERT_(c,t='\U00002a33'): »c,t; ↪c
 pprint = PrettyPrinter(2).pprint
 DEGEN_=g↦deque(g,maxlen=0)
-EMPTY_STRING=''
-COMPLEX_UNIT=1j
-MATH_PI = 3.14159265359
-MATH_TAU = 6.28318530718
+EMPTY_STRING, COMPLEX_UNIT = '', 1j
+MATH_PI, MATH_TAU = 3.14159265359, 6.28318530718
+cls Namespace:
+    __init__ = 𝕊↦𝕂.keys()|🜌(𝕊)|𝕂.values()
+    __iter__ = 𝕊↦iter(🢖__dict__.items())
+    __repr__ = 𝕊↦‹ℕ({(', '.join(‹{k}={v}› ∀k,v∈🢖__dict__.items()))})›
 cls pait:
     ⨡ subprocess as SP
     ⊢ __call__(𝕊,s,⠤𝔸,⠶𝕂):
