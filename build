@@ -1,14 +1,13 @@
 #!/bin/sh
 
-# note: cpy (cpython fork) uses branch 3.12
-
 set -e ; cd "${0%/*}"
 
 WEBTEMPLATER_PATH="$(realpath ./Building/site_builder/site_builder)"
 CPY_PATH="$(realpath ./Building/cpy/bin/)"
+ln -s "$(realpath ./Building/cpy/cpython-fork/python)" "$CPY_PATH/cpy_binary" || :
 "${CPY_PATH}/cpy_binary" -m pip install -r ./requirements.txt
 
-rm -r ./dest || :
+rm -r ./dest/* || :
 sh "${WEBTEMPLATER_PATH}" ./LaserProject ./dest
 cd dest
 clear
