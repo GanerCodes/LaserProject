@@ -7,5 +7,5 @@ sock.sendto(b"5:2", (ADDRESS, 7501))
 
 (rec_sock ≔ NET.socket(NET.AF_INET, NET.SOCK_DGRAM)).bind((ADDRESS, 7500))
 ➰𝕋:
-     data, (ip, port) = 🢖Sock_R.rec_sock(1024)
+     data, (ip, port) = rec_sock.recvfrom(1024)
      ☾⨯‹Revieved data: "{data.decode()}" from {ip}:{port}›

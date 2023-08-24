@@ -13,7 +13,7 @@ cls Socket_Server:
     
     ⊢ transmit(𝕊, data, target=□):
         ☾⨯🢖Clients
-        B = ⑴🢖Sock_B.sendto(data.encode(), (x,🢖PORT_B))
+        B = ⑴🢖Sock_B.sendto(data.encode(), (x, 🢖PORT_B))
         B(target) ¿target¡ ⁅B(c)∀c∈🢖Clients.values()⁆
     
     ⊢ __call__(𝕊):

@@ -7,5 +7,6 @@ cd ./LaserProject
 cd ./Building/cpy/cpython-fork/TOOL
 sh ./COMPILE.sh
 cd -
+./Building/cpy/cpython-fork/python -m pip install -r requirements.txt
 sh ./build
 ```
