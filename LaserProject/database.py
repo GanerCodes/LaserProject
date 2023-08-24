@@ -1,4 +1,4 @@
 # TODO
 class Database:
-    pass 
+    pass
 database = Database()

@@ -5,6 +5,7 @@
 ⮌ threading ⨡ Thread
 
 ⮌ game ⨡ Game
+⮌ database ⨡ database
 
 cls Reply:
     ⊢ __getattr__(𝕊, name):
@@ -30,5 +31,5 @@ app = Flask(__name__)
     ↪ Reply.error404
 
 ¿ __name__ ≠ "__main__": exit()
-game = Game()
+game = Game(database)
 w_serve(app, listen="*:8000")
