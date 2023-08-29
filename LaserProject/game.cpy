@@ -16,9 +16,29 @@ cls Game:
     ⊢ __init__(𝕊, database):
         🢖database, 🢖stage, 🢖teams = database, 0, □
         🢖server = Socket_Server(🢖handle_client_message)
+        🢖reset_game()
         Thread(target=🢖server).start()
     
-    ⊢ create_game(𝕊):
+    ⊢ remove_player(𝕊, team, player):
+        □ 🟑TODO🟑
+    
+    ⊢ handle_command(𝕊, cmd):
+        ¿"command"∉cmd: ↪(400, "Missing command")
+        ¿cmd["command"]≡"reset_game":
+            ↪ (200, "Reset game.") ¿🢖reset_game()¡ (400, "Failed to reset game")
+        ¿cmd["command"]≡"player":
+            ¿🢖stage∉1⋄2: ↪(400, "Game already started!")
+            ¿"id"∉cmd: ↪(400, "Missing id")
+            ¿"team"∉cmd: ↪(400, "Missing team")
+            ¿(team≔cmd["team"])∉"RGD": ↪(400, "Invalid team")
+            play_id = cmd["id"]
+            ⁅🢖remove_player(t, play_id) ∀t∈({⠤"RGD"}-{team,D❟})⁆
+            ¿team≡D❟: ↪
+            🢖teams[team][play_id] = Player(ᐦ, 0)
+            ↪(200, ‹Added player {play_id}›)
+        ↪(400, "Invalid command")
+    
+    ⊢ reset_game(𝕊):
         🢖stage, 🢖teams = 1, ℵ(R={}, G={})
         ↪𝕋
     ⊢ start_game(𝕊):
