@@ -6,7 +6,7 @@ DEGEN_=g↦deque(g,maxlen=0)
 EMPTY_STRING, COMPLEX_UNIT = '', 1j
 MATH_PI, MATH_TAU = 3.14159265359, 6.28318530718
 cls Namespace:
-    __init__ = 𝕊↦𝕂.keys()|🜌(𝕊)|𝕂.values()
+    __init__ = 𝕊↦𝕂.keys()⨯⚇|🜌(𝕊)|⚇⨯𝕂.values()
     __setitem__ = ⥌𝕊,k,v↦setattr(𝕊,k,v)
     __getitem__ = ⥌𝕊,k↦getattr(𝕊,k)
     __iter__ = 𝕊↦iter(🢖__dict__.items())

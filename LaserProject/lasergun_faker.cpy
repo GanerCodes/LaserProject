@@ -1,4 +1,22 @@
 ⨡ socket as NET
+⮌ requests ⨡ post
+
+URL = "http://127.0.0.1:8000/api"
+☾⨯post(URL, json={
+     "command": "player",
+     "id": 5,
+     "team": "R"}).text
+☾⨯post(URL, json={
+     "command": "player",
+     "id": 6,
+     "team": "G"}).text
+☾⨯post(URL, json={
+     "command": "player",
+     "id": 6,
+     "team": "G"}).text
+
+☾⨯(j≔post(URL, json={
+     "command": "get_state"})).text
 
 ADDRESS = "0.0.0.0"
 

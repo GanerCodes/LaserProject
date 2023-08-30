@@ -1,3 +1,5 @@
+»__name__≡"__main__"
+
 ⨡ os
 ⮌ flask ⨡ *
 ⮌ werkzeug.security ⨡ safe_join
@@ -19,17 +21,23 @@ cls Reply:
 Reply = Reply()
 
 app = Flask(__name__)
+game = Game(database)
+
+@app.route("/api", methods=["POST"])
+⊢ on_pos():
+    data = request.get_json()
+    ¿¬data: ↪Reply.error404
+    code,msg = game.handle_command(data)
+    ↪ jsonify(msg), code
 
 @app.route(/❟, defaults={"path": ᐦ})
 @app.route("/<path:path>")
-⊢ route(path):
-    ¿ path ∈ "/": path = "index.html"
+⊢ on_get(path):
+    ¿path∈"/": path = "index.html"
     path = safe_join(app.static_folder, path)
-    ¿ path ≡ □: ↪ Reply.errorCringe
-    ¿ os.path.isfile(path): ↪ send_file(path)
-    ⸘ os.path.isdir(path): ↪ jsonify(os.path.listdir(path))
-    ↪ Reply.error404
+    ¿path≡□: ↪Reply.errorCringe
+    ¿os.path.isfile(path): ↪send_file(path)
+    # ⸘os.path.isdir(path): ↪jsonify(os.path.listdir(path))
+    ↪Reply.error404
 
-¿ __name__ ≠ "__main__": exit()
-game = Game(database)
 w_serve(app, listen="*:8000")

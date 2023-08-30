@@ -10,8 +10,9 @@ cls Socket_Server:
         🢖Clients = {}
         🢖handle_client_message = handler
     
+    reset_clients = 𝕊↦(🢖Clients≔{})
+    
     ⊢ transmit(𝕊, data, target=□):
-        ☾⨯🢖Clients
         B = ⑴🢖Sock_B.sendto(data.encode(), (x, 🢖PORT_B))
         B(target) ¿target¡ ⁅B(c)∀c∈🢖Clients.values()⁆
     

@@ -29,7 +29,7 @@
       "control": {
         "patterns": [{
             "name": "control",
-            "match": "[⋄⨡;»⊢⇥↪⮌⥀⮂↺⟳➰∀¿¡⸘]"
+            "match": "[⋄⨡;»⊢⇥↪⮌⥀⮂↺⟳␡➰∀¿¡⸘]"
         }]},
       "function": {
         "patterns": [{
@@ -74,12 +74,12 @@
         "patterns": [
           { "name": "one_char_str",
             "match": ".(?=❟)" },
+          { "name": "fstring",
+            "match": "‹.*?›" },
           { "name": "string",
             "begin": "'", "end": "'" },
           { "name": "string",
-            "begin": "\"", "end": "\"" },
-          { "name": "fstring",
-            "match": "‹|›" }
+            "begin": "\"", "end": "\"" }
         ]
       },
       "comment": {
