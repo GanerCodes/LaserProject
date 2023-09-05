@@ -19,6 +19,7 @@ cls Socket_Server:
     ⊢ __call__(𝕊):
         ➰𝕋:
             data, (ip, port) = 🢖Sock_R.recvfrom(1024)
+            ☾⨯‹Laser says: {C}:{T}›
             ¿ :❟∉(data≔data.decode()):
                 ☾⨯‹Unable to process: "{data}\"›
                 ↺
@@ -29,5 +30,4 @@ cls Socket_Server:
             ⸘(p≔🢖Clients[C])≠ip:
                 🢖Clients[C] = ip
                 ☾⨯‹Changed {C}'s IP: {p}→{ip}›
-            ☾⨯‹Laser says: {C}:{T}›
             🢖handle_client_message(C, T)
