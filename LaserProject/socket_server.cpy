@@ -19,12 +19,15 @@ cls Socket_Server:
     ⊢ __call__(𝕊):
         ➰𝕋:
             data, (ip, port) = 🢖Sock_R.recvfrom(1024)
-            C, T = data.decode().split(:❟,1)
+            ¿ :❟∉(data≔data.decode()):
+                ☾⨯‹Unable to process: "{data}\"›
+                ↺
+            C, T = data.split(:❟,1)
             ¿C∉🢖Clients:
                 🢖Clients[C] = ip
                 ☾⨯‹Added client {C} - {ip}›
             ⸘(p≔🢖Clients[C])≠ip:
                 🢖Clients[C] = ip
                 ☾⨯‹Changed {C}'s IP: {p}→{ip}›
-            ☾⨯‹{C}:{T}›
+            ☾⨯‹Laser says: {C}:{T}›
             🢖handle_client_message(C, T)

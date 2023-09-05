@@ -1,29 +1,34 @@
 ⨡ socket as NET
 ⮌ requests ⨡ post
+⮌ threading ⨡ Thread
 
 URL = "http://127.0.0.1:8000/api"
-☾⨯post(URL, json={
-     "command": "player",
-     "id": 5,
-     "team": "R"}).text
-☾⨯post(URL, json={
-     "command": "player",
-     "id": 6,
-     "team": "G"}).text
-☾⨯post(URL, json={
-     "command": "player",
-     "id": 6,
-     "team": "G"}).text
 
-☾⨯(j≔post(URL, json={
-     "command": "get_state"})).text
+🟑Set a ID to a team🟑
+j={ "command": "player",
+    "id": 5,
+    "team": "R"}
+☾⨯post(URL, json=j).text
+
+🟑Get state🟑
+j={ "command": "get_state" }
+֎⇒ { "stage": …,
+     "teams": {
+        "red": …,
+        "green": … } }֎
+☾⨯(j≔post(URL, json=j)).text
 
 ADDRESS = "0.0.0.0"
 
 sock = NET.socket(NET.AF_INET, NET.SOCK_DGRAM)
 sock.sendto(b"5:2", (ADDRESS, 7501))
 
-(rec_sock ≔ NET.socket(NET.AF_INET, NET.SOCK_DGRAM)).bind((ADDRESS, 7500))
+⊢ reader():
+     (rec_sock ≔ NET.socket(NET.AF_INET, NET.SOCK_DGRAM)).bind((ADDRESS, 7500))
+     ➰𝕋:
+          data, (ip, port) = rec_sock.recvfrom(1024)
+          ☾⨯‹Revieved data: "{data.decode()}" from {ip}:{port}›
+Thread(target=reader).start()
+
 ➰𝕋:
-     data, (ip, port) = rec_sock.recvfrom(1024)
-     ☾⨯‹Revieved data: "{data.decode()}" from {ip}:{port}›
+     sock.sendto(input("Input: ").encode(), (ADDRESS, 7501))
