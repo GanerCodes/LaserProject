@@ -6,7 +6,7 @@
 
 # ADD reduce
 
-CPYTH="$(readlink -m "$0/..")"
+CPYTH="$(readlink "$0/..")"
 
 set -e
 for file in $(find . -name '*.cpy'); do
