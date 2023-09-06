@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      var name;
+      var id;
+
+      function test(name, id) {
+        alert(name + " " + id );
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,38 +26,75 @@
         <!-- Red Team Column -->
         <div class="w-1/2 bg-red-500 p-4 rounded shadow-lg">
           <h2 class="text-lg font-semibold text-white mb-4">Red Team</h2>
-          <div class="space-y-4">
-            <div class="bg-white p-4 rounded flex space-x-4">
+          <div class="space-y-4" id="redTeamDiv">
+            <!-- Player entry box red -->
+            <div class="bg-white p-4 rounded flex space-x-4" id = "EntryBoxRed">
               <input
                 class="w-full border p-2"
                 type="text"
                 placeholder="Player Name"
+                id="nameTextRed"
               />
               <input
                 class="w-full border p-2"
                 type="text"
                 placeholder="Gun ID#"
+                id="idTextRed"
               />
+              <a href="#" onClick="addPlayerRed('Bill Jones', 23)">Enter</a>
+              <!-- Function for adding players using the enter button above -->
+              <script>
+                function addPlayerRed(name, id) {
+                  const para = document.createElement("div");
+                  para.setAttribute("class", "bg-white p-4 rounded flex space-x-4")
+                  const node = document.createTextNode("" + document.getElementById('nameTextRed').value + "        " + document.getElementById('idTextRed').value);
+                  document.getElementById('nameTextRed').value = "";
+                  document.getElementById('idTextRed').value = "";
+                  para.appendChild(node);
+                  
+                  const element = document.getElementById("redTeamDiv");
+                  const child = document.getElementById("EntryBoxRed")
+                  element.insertBefore(para, child);
+                }
+                </script>
             </div>
-            <!-- Add more player entry boxes here -->
           </div>
         </div>
 
         <!-- Green Team Column -->
         <div class="w-1/2 bg-green-500 p-4 rounded shadow-lg">
           <h2 class="text-lg font-semibold text-white mb-4">Green Team</h2>
-          <div class="space-y-4">
-            <div class="bg-white p-4 rounded flex space-x-4">
+          <div class="space-y-4" id = "greenTeamDiv">
+            <!-- Player entry box green-->
+            <div class="bg-white p-4 rounded flex space-x-4" id = "EntryBoxGreen">
               <input
                 class="w-full border p-2"
                 type="text"
                 placeholder="Player Name"
+                id="nameTextGreen"
               />
               <input
                 class="w-full border p-2"
                 type="text"
                 placeholder="Gun ID#"
+                id="idTextGreen"
               />
+              <a href="#" onClick="addPlayerGreen('John Doe', 43)">Enter</a>
+              <!-- Function for adding players using the enter button above -->
+              <script>
+                function addPlayerGreen(name, id) {
+                  const para = document.createElement("div");
+                  para.setAttribute("class", "bg-white p-4 rounded flex space-x-4")
+                  const node = document.createTextNode("" + document.getElementById('nameTextGreen').value + "        " + document.getElementById('idTextGreen').value);
+                  document.getElementById('nameTextGreen').value = "";
+                  document.getElementById('idTextGreen').value = "";
+                  para.appendChild(node);
+                  
+                  const element = document.getElementById("greenTeamDiv");
+                  const child = document.getElementById("EntryBoxGreen")
+                  element.insertBefore(para, child);
+                }
+                </script>
             </div>
             <!-- Add more player entry boxes here -->
           </div>
