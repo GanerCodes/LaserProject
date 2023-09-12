@@ -19,7 +19,7 @@ cls Socket_Server:
     ⊢ __call__(𝕊):
         ➰𝕋:
             data, (ip, port) = 🢖Sock_R.recvfrom(1024)
-            ☾⨯‹Laser says: {C}:{T}›
+            ☾⨯‹Laser says: {data}›
             ¿ :❟∉(data≔data.decode()):
                 ☾⨯‹Unable to process: "{data}\"›
                 ↺
