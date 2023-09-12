@@ -40,4 +40,4 @@ game = Game(database)
     # ⸘os.path.isdir(path): ↪jsonify(os.path.listdir(path))
     ↪Reply.error404
 
-w_serve(app, listen="*:8000")
+w_serve(app, listen="*:8000", clear_untrusted_proxy_headers=𝕋)
