@@ -1,3 +1,5 @@
+🟑 Note: This file is to only be ran on the backend server. 🟑
+
 »__name__≡"__main__"
 
 ⨡ os
