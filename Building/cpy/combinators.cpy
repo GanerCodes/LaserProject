@@ -4,7 +4,7 @@
 
 # Note: ←→ forces x¹←y²→z¹
 
-cls OP_:
+Ω OP_:
     ⊢ __new__(ℂ,f,d=□,⠶𝕂):
         C = type("OP", (ℂ, ), {})
         ⁅setattr(C, m, (⥌𝕊,o,k=k↦𝕊.check(k,o))) ∀m,k∈𝕂.items()⁆
@@ -15,11 +15,11 @@ cls OP_:
     check = 𝕊,k,v ↦ ⨳(k∉𝕊.d)∧type(𝕊)(𝕊.f, {k:v}|𝕊.d, ⠶𝕊.kw)
     __rlshift__ = 𝕊,o ↦ (o≔COAR_OP_(o))∧OP_BNARY_(⥌x,y↦𝕊.f(o.f(x),y), 𝕊.d.copy(), ⠶𝕊.kw)
     __rshift__  = 𝕊,o ↦ (o≔COAR_OP_(o))∧OP_BNARY_(⥌x,y↦𝕊.f(x,o.f(y)), 𝕊.d.copy(), ⠶𝕊.kw)
-cls OP_UNARY_(OP_):
+Ω OP_UNARY_(OP_):
     ⊢ check(𝕊, k, v):
         d = (𝕊 ≔ super().check(k, v)).d
         ↪ 𝕊.f(d[v]) ¿(v≔'l')∈d∨(v≔'r')∈d¡ 𝕊
-cls OP_BNARY_(OP_):
+Ω OP_BNARY_(OP_):
     ⊢ check(𝕊, k, v):
         d = (𝕊 ≔ super().check(k, v)).d
         ↪ 𝕊.f(d['l'],d['r']) ¿'l'∈d∧'r'∈d¡ 𝕊
