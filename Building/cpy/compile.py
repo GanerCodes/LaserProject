@@ -1,6 +1,6 @@
 TRY_SURROUND_SPACE = \
     "𝕋/True 𝔽/False ⤉/max ⤈/min ⋀/all ⋁/any " \
-    "Σ/sum Π/prod " \
+    "Σ/sum Π/prod Ω/class " \
     "☾/print 🃌/len ⨳/ASSERT_ ᴍ/map ⚇/list ζ/zip " \
     "↕/range ↨/enumerate 🜌/setattrs ⍟/DEGEN_ " \
     "⇧/skinniside_z ⇳/skinniside_b ⍭/split_string " \
