@@ -29,7 +29,7 @@
       "control": {
         "patterns": [{
             "name": "control",
-            "match": "[⋄⨡;»⊢⇥↪⮌⥀⮂↺⟳␡➰∀¿¡⸘]"
+            "match": "[⋄⨡;»Ω⊢⇥↪⮌⥀⮂↺⟳␡➰∀¿¡⸘]"
         }]},
       "function": {
         "patterns": [{
