@@ -13,15 +13,15 @@ app = Flask(__name__)
 ⊢ on_post():
     data = request.get_json()
     ☾⨯data
-    ¿¬data∨¬(ID≔data.get("ID")):
+    ¿¬data∨¬(ID≔data.get("ID")): # All database requests need an ID
         ↪ jsonify({"error": "Invalid"}), 404
     
     with SqliteDict("database.db") as db:
-        ¿name≔data.get("name"):
+        ¿name≔data.get("name"): # Set name
             db[ID] = name
             db.commit()
             ↪ jsonify({ "msg": "success" }), 200
-        ⸘ID∈db: 
+        ⸘ID∈db: # Return name
             ↪ jsonify({ "msg": "success", "name": db[ID] }), 200
         ¡:
             ↪ jsonify({ "msg": "Player not found" }), 400

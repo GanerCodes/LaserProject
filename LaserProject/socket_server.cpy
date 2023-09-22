@@ -2,7 +2,7 @@
 
 cls Socket_Server:
     ADDRESS = "0.0.0.0"
-    PORT_B, PORT_R = 7500, 7501
+    PORT_B, PORT_R = 7500, 7501 # Broadcast, Recieve
     
     ⊢ __init__(𝕊, handler):
         🢖Sock_B = NET.socket(NET.AF_INET, NET.SOCK_DGRAM)
@@ -14,16 +14,17 @@ cls Socket_Server:
     
     ⊢ transmit(𝕊, data, target=□):
         B = ⑴🢖Sock_B.sendto(data.encode(), (x, 🢖PORT_B))
+        # Default broadcast, if given a target only send message to one specific client
         B(target) ¿target¡ ⁅B(c)∀c∈🢖Clients.values()⁆
     
     ⊢ __call__(𝕊):
-        ➰𝕋:
+        ➰𝕋: # TCP server loop
             data, (ip, port) = 🢖Sock_R.recvfrom(1024)
             ☾⨯‹Laser says: {data}›
-            ¿ :❟∉(data≔data.decode()):
-                ☾⨯‹Unable to process: "{data}\"›
-                ↺
-            C, T = data.split(:❟,1)
+            ¿ :❟∉(data≔data.decode()): # malformed input
+                ☾⨯‹Unable to process: "{data}\"› ; ↺
+            
+            C, T = data.split(:❟,1) # Shooter ID, target ID
             ¿C∉🢖Clients:
                 🢖Clients[C] = ip
                 ☾⨯‹Added client {C} - {ip}›
