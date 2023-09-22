@@ -11,7 +11,7 @@
 ⮌ game ⨡ Game
 ⮌ database ⨡ database
 
-cls Reply:
+Ω Reply:
     ⊢ __getattr__(𝕊, name):
         match name:
             case "ok":
