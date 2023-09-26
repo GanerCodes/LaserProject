@@ -1,6 +1,6 @@
 ⨡ socket as NET
 
-cls Socket_Server:
+Ω Socket_Server:
     ADDRESS = "0.0.0.0"
     PORT_B, PORT_R = 7500, 7501 # Broadcast, Recieve
     
