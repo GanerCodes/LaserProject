@@ -12,7 +12,7 @@ State:
     4: Concluded game
 🟑
 Player = NT("Player", ("name", "score"))
-cls Game:
+Ω Game:
     ⊢ __init__(𝕊, database):
         🢖database, 🢖stage, 🢖teams = database, 0, □
         🢖server = Socket_Server(🢖handle_client_message)

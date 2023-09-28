@@ -1,6 +1,6 @@
 ⨡ socket as NET
 
-cls Socket_Server:
+Ω Socket_Server:
     ADDRESS = "0.0.0.0"
     PORT_B, PORT_R = 7500, 7501 # Broadcast, Recieve
     
@@ -14,7 +14,7 @@ cls Socket_Server:
     
     ⊢ transmit(𝕊, data, target=□):
         B = ⑴🢖Sock_B.sendto(data.encode(), (x, 🢖PORT_B))
-        # Default broadcast, if given a target only send message to one specific client
+        # Default broadcast, if given a target send message to client uniquely
         B(target) ¿target¡ ⁅B(c)∀c∈🢖Clients.values()⁆
     
     ⊢ __call__(𝕊):
