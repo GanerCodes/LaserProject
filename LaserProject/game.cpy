@@ -12,12 +12,12 @@ State:
     4: Concluded game
 🟑
 Player = NT("Player", ("name", "score"))
-cls Game:
+Ω Game:
     ⊢ __init__(𝕊, database):
         🢖database, 🢖stage, 🢖teams = database, 0, □
         🢖server = Socket_Server(🢖handle_client_message)
         🢖reset_game()
-        Thread(target=🢖server).start()
+        Thread(target=🢖server).start() # Start TCP Server
     
     ⊢ remove_player(𝕊, team, player):
         ¿team∉🢖teams ∨ player∉(T≔🢖teams[team]): ↪   
@@ -49,7 +49,7 @@ cls Game:
     ⊢ start_game(𝕊):
         ¿🢖stage≠1: ↪
         🢖stage=2
-        Thread(target=🢖game_loop).start()
+        Thread(target=🢖game_loop).start() # Start the game loop
         ↪𝕋
     ⊢ game_loop(𝕊):
         ¿state≠2: ↪𝔽
@@ -59,10 +59,10 @@ cls Game:
             ¿t<🢖start_time:
                 sleep(0.1) ; ↺
             🢖stage = 3
-        ➰🢖stage≡3: # game
+        ➰🢖stage≡3: # in-game
             □
     
-    ⊢ get_state(𝕊):
+    ⊢ get_state(𝕊): # Package up gamestate
         data = { "stage": 🢖stage,
                  "teams": {
                       "red": 🢖teams.R,
@@ -71,10 +71,12 @@ cls Game:
         ↪data
     
     ⊢ handle_client_message(𝕊, C, T):
-        ¿🢖stage≠3: ↪ # TODO: figure out what the guns do before the game starts. do they ping or something?
+        ¿🢖stage≠3: ↪
+        
         players = teams.R|teams.G
-        ¿ C∉players∨T∉players: ↪
+        ¿ C∉players∨T∉players: ↪ # ID not on a team
         🢖server.transmit(C)
         T = teams.R ¿C∈🢖teams.R¡ teams.G
-        T[C].score += 1
-        # TODO: what do i do here lol
+        T[C].score += 1 # update team score
+        
+        # TODO: update frontend?

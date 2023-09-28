@@ -1,3 +1,5 @@
+# Frontend
+
 »__name__≡"__main__"
 
 ⨡ os
@@ -9,35 +11,40 @@
 ⮌ game ⨡ Game
 ⮌ database ⨡ database
 
-cls Reply:
+Ω Reply:
     ⊢ __getattr__(𝕊, name):
         match name:
             case "ok":
                 ↪ Response(status=200)
             case "error404":
                 ↪ jsonify({"error": "Not found"}), 404
-            case "errorCringe":
-                ↪ jsonify({"error": "L+ratio+you fell off"}), 500
+            case "invalid":
+                ↪ jsonify({"error": "Invalid Request"}), 500
 Reply = Reply()
 
 app = Flask(__name__)
 game = Game(database)
 
 @app.route("/api", methods=["POST"])
-⊢ on_pos():
+⊢ on_post():
     data = request.get_json()
-    ¿¬data: ↪Reply.error404
-    code,msg = game.handle_command(data)
+    ¿¬data: ↪Reply.invalid # we only accept JSON here
+    
+    code, msg = game.handle_command(data)
     ↪ jsonify(msg), code
 
 @app.route(/❟, defaults={"path": ᐦ})
 @app.route("/<path:path>")
 ⊢ on_get(path):
     ¿path∈"/": path = "index.html"
+    
+    # Anti directory-traversal
     path = safe_join(app.static_folder, path)
-    ¿path≡□: ↪Reply.errorCringe
+    ¿path≡□: ↪Reply.invalid
+    
+    # Give client requested webpage
     ¿os.path.isfile(path): ↪send_file(path)
-    # ⸘os.path.isdir(path): ↪jsonify(os.path.listdir(path))
+    
     ↪Reply.error404
 
-w_serve(app, listen="*:8000")
+w_serve(app, listen="*:8000", clear_untrusted_proxy_headers=𝕋)
