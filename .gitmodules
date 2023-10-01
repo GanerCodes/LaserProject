@@ -1,7 +1,0 @@
-[submodule "Building/cpy/cpython-fork"]
-	path = Building/cpy/cpython-fork
-	url = https://github.com/GanerCodes/cpython.git
-	branch = 3.12
-[submodule "Building/cpy"]
-	path = Building/cpy
-	url = https://github.com/GanerCodes/cpy
