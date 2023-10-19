@@ -31,21 +31,23 @@ Player = NT("Player", ("name", "score"))
             ↪ (200, ‹Reset game.›) ¿🢖reset_game()¡ (400, ‹Failed to reset game›)
         ¿cmd["command"]≡"start_game":
             ↪ (200, ‹Starting game.›) ¿🢖start_game()¡ (400, ‹Failed to start game›)
-        ¿cmd["command"]≡"register_player":
-            ↪ 🢖database(cmd)
+        ¿cmd["command"]≡"call_database":
+            req = 🢖database(⠶cmd)
+            req₁['code'] = req₀
+            ↪ (req₀, req₁)
         ¿cmd["command"]≡"player":
             ¿🢖stage∉1⋄2: ↪(400, ‹Game already started!›)
             ¿"id"∉cmd: ↪(400, ‹Missing id›)
             ¿"team"∉cmd: ↪(400, ‹Missing team›)
-            ¿(team≔cmd["team"])∉"RGD": ↪(400, ‹Invalid team›)
+            ¿(team≔cmd["team"].upper())∉"RGD": ↪(400, ‹Invalid team›)
             
-            code, resp = 🢖database(play_id ≔ cmd["id"])
-            ¿code≠200: ↪(400, ‹Failed to pull player from DB: \"{resp['msg']}\"›)
+            code, resp = 🢖database(ID=(play_id≔cmd["id"]))
+            ¿code≠200: ↪(400, ‹Failed to pull player from DB: "{resp['msg']}" ›)
             play_name = resp['name']
             
             ⁅🢖remove_player(x, play_id) ∀x∈({⠤"RGD"}-{team,D❟})⁆
             ¿team≡D❟: ↪(200, ‹Success›)
-            🢖teams[team][play_id] = Player("name", 0)
+            🢖teams[team][play_id] = Player(play_name, 0)
             ↪(200, ‹Added player {play_id}:{play_name}›)
         ↪(400, ‹Invalid command›)
     
