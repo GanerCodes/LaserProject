@@ -14,9 +14,12 @@ const makeid = (length, chars=ASCII_CHARS_STANDARD) =>
         .map(_=>chars.charAt(Math.floor(Math.random()*chars.length)))
         .reduce(([a,b])=>a+b, '');
 const createElement = (tagName, attrs={}, ...children) => { // required for JSX
-    const elem = Object.assign(document.createElement(tagName), attrs)
-    for (const child of children) {
-        if (Array.isArray(child)) elem.append(...child)
-        else elem.append(child)
-    }
+    const elem = document.createElement(tagName);
+    for(const [k, v] of Object.entries(attrs))
+        elem.setAttribute(k, v);
+    for (const child of children)
+        Array.isArray(child) ? elem.append(...child) : elem.append(child)
     return elem; };
+
+const BID = (id) => document.getElementById(id);
+const VAL = (id) => BID(id).value;
