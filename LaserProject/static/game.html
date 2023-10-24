@@ -12,26 +12,30 @@
     </head>
     <body class="bg-gray-300 flex justify-center h-screen">
         <div class="text-center">
-          <div class="flex gap-10">
+          <div class="flex gap-20">
             <!-- Red Team Column -->
-            <div class="w-300 bg-red-400 p-4 rounded shadow-lg">
+            <div class="w-60 bg-red-400 p-4 rounded shadow-lg">
               <h2 class="text-sm font-semibold text-white mb-4">Red Team</h2>
               <div class="space-y-4" id="redTeamDiv">
-                <div class= "bg-black p-4 rounded flex space-x-4"></div>
+                <div class= "w-full h-40 bg-black text-white p-4 rounded flex space-x-4"> red team players individual scores</div>
+                <div class= "w-full h-40 bg-black text-white p-4 rounded flex space-x-4"> current red team action </div>
               </div>
             </div>
             <!-- Action Column-->
-            <div class ="w-300 bg-yellow-400 p-4 rounded shadow-lg">
+            <div class ="w-60 bg-yellow-400 justify-center p-4 rounded shadow-lg">
                 <h2 class="text-sm font-semibold text-white mb-4 ">Action</h2>
                 <div class="space-y-4" id="actionDiv">
-                  <div class= "w-full bg-black p-4 rounded flex space-x-4"></div>
-                </div>
+      
+                  <div class= "w-full bg-black p-4 text-white rounded flex space-x-4">winning team</div>
+                  <div class="w-full h-40 bg-black text-white p-4 rounded flex space-x-4">top 5</div>
+            </div>
             </div>
             <!-- Green Team Column -->
-            <div class="w-full bg-green-400 p-4 rounded shadow-lg">
+            <div class="w-60 bg-green-400 p-4 rounded shadow-lg">
               <h2 class="text-sm font-semibold text-white mb-4">Green Team</h2>
               <div class="space-y-4" id = "greenTeamDiv">
-                <div class= "w-full bg-black p-4 rounded flex space-x-4"></div>
+                <div class= "w-full bg-black text-white p-4 rounded flex space-x-4">green team players individual scores</div>
+                <div class= "w-full bg-black text-white p-4 rounded flex space-x-4">current green team action</div>
               </div>
             </div>
           </div>
