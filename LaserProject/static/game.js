@@ -3,7 +3,6 @@ var redPlayers= {
     "Jimmy": 12,
     "Edgar": 11,
     "GaynerCodes": 9,
-    "Amber": 10
 };
 
 var redTotal;
@@ -13,10 +12,49 @@ var greenPlayers= {
     "Billy": 11,
     "James": 10,
     "John": 8,
-    "Karl": 13
 };
 
 var greenTotal; 
+
+function onPageStartTest() {
+    alert("Hey man!  This is just a debug message to let you know that the script is running!");
+    var i = 0;
+    // Add red players to html
+    for (var name in redPlayers) {
+        const node = document.createElement("tr");
+        const newPlayer = document.createElement("td");
+        newPlayer.innerHTML = name;
+        newPlayer.setAttribute("class", "border border-white p-2")
+        node.appendChild(newPlayer);
+        const newScore = document.createElement("td");
+        newScore.innerHTML = redPlayers[name];
+        newScore.setAttribute("class", "border border-white p-2 w-1/4")
+        node.appendChild(newScore);
+
+        document.getElementById("redBody").appendChild(node);
+
+        i = i + 1;
+    }
+    // Add green players to html
+     for (var name in greenPlayers) {
+        const node = document.createElement("tr");
+        const newPlayer = document.createElement("td");
+        newPlayer.innerHTML = name;
+        newPlayer.setAttribute("class", "border border-white p-2")
+        node.appendChild(newPlayer);
+        const newScore = document.createElement("td");
+        newScore.innerHTML = greenPlayers[name];
+        newScore.setAttribute("class", "border border-white p-2 w-1/4")
+        node.appendChild(newScore);
+
+        document.getElementById("greenBody").appendChild(node);
+
+        i = i + 1;
+    }
+
+    // <td class="border border-white p-2">PlayerName</td>
+    // <td class="border border-white p-2 w-1/4">100</td>
+}
 
 function testRed () {
     redTotal = 0;
