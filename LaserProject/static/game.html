@@ -9,6 +9,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
     />
+    <script src="game.js"></script>
+    <body onload="onPageStartTest()">
   </head>
   <body class="bg-gray-300 flex justify-center h-screen">
     <div class="text-center">
@@ -21,27 +23,27 @@
               <table class="w-full max-w-full">
                 <thead>
                   <tr>
-                    <th class="border border-white p-2">Player</th>
-                    <th class="border border-white p-2 w-1/4">Scores</th>
+                    <th id="hi" class="border border-white p-2">Player</th>
+                    <th id="bye" class="border border-white p-2 w-1/4">Scores</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
+                <tbody id = "redBody">
+                  <!-- tr>
+                    <td id="redPlayers0" class="border border-white p-2">PlayerName</td>
+                    <td id="redScores0" class="border border-white p-2 w-1/4">100</td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
+                    <td id="redPlayers1" class="border border-white p-2">PlayerName</td>
+                    <td id="redScores1" class="border border-white p-2 w-1/4">100</td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
+                    <td id="redPlayers2" class="border border-white p-2">PlayerName</td>
+                    <td id="redScores2"class="border border-white p-2 w-1/4">100</td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
-                  </tr>
+                    <td id="redPlayers3" class="border border-white p-2">PlayerName</td>
+                    <td id="redScores3" class="border border-white p-2 w-1/4">100</td>
+                  </tr -->
                   <!-- ... Add more rows as needed ... -->
                 </tbody>
               </table>
@@ -112,8 +114,8 @@
                     <th class="border border-white p-2 w-1/4">Scores</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+                <tbody id = "greenBody">
+                  <!--tr>
                     <td class="border border-white p-2">PlayerName</td>
                     <td class="border border-white p-2 w-1/4">100</td>
                   </tr>
