@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Centered Countdown Timer</title>
+</head>
+<body>
+
+<div class="countdown-container">
+    <div id="countdown">10</div>
+</div>
+
+<script>
+    // Function to update the countdown
+    function updateCountdown() {
+        var countdownElement = document.getElementById("countdown");
+        var currentCount = parseInt(countdownElement.innerHTML);
+
+        if (currentCount > 0) {
+            countdownElement.innerHTML = (currentCount - 1).toString();
+        } else {
+            countdownElement.innerHTML = "Countdown Finished!";
+        }
+    }
+
+    // Update the countdown every second
+    var countdownInterval = setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>

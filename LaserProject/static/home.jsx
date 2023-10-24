@@ -21,6 +21,7 @@ async function addPlayerToTeam(team) { // team ∈ {Green, Red}
       "command": "call_database",
       "ID": I }); // get name
     if(𝕣['status'] != 200) return alert("NO");
+    N = 𝕣["name"];
   }
   
   const 𝕣 = await api({
