@@ -4,7 +4,6 @@ async function addPlayerToTeam(team) { // team ∈ {Green, Red}
   const T_idText = `${team}Id`;
   const T_teamDiv = `${team}TeamDiv`;
   const T_setupInput = `${team}SetupInput`;
-  const T_entryBox = `EntryBox${team}`;
   let [N, I] = [VAL(T_nameText), VAL(T_idText)];
 
   if (!(I && counts[team] < 15)) 
