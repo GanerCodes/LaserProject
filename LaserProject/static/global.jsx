@@ -8,7 +8,8 @@ const api = async data => {
             "Content-type": "application/json; charset=UTF-8"
         }
     });
-    const json = resp.json();
+    let json = await resp.json();
     json["status"] = resp.status;
+    print(`API with "${JSON.stringify(data)}" → "${JSON.stringify(json)}"`)
     return json;
 };

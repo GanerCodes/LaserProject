@@ -29,7 +29,6 @@ async function addPlayerToTeam(team) { // team ∈ {Green, Red}
     "id": I,
     "team": team.charAt(0)})
   if(𝕣['status'] != 200) return alert("NO");
-  print(req);
 
   counts[team]++;
   const para = 
