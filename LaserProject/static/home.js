@@ -6,11 +6,26 @@ var redCount;
 
 greenCount = 0;
 redCount = 0;
+document.addEventListener('keyup', function (event) { self.keyUp(event); }, false);
+
 
 function test(name, id) {
   alert(name + " " + id);
 }
+function keyUp(event){
+  if(event.keyCode ==116){//F5
+  //pass playernames to go to countdown
+  setTimeout(() =>window.location.href="/countdown.html", 500);
+  }
+  if(event.keyCode==123){//F12
+    //clear all player entries
+    resetToOrginal()
+  }
 
+}
+function resetToOrginal(){
+  //clear player entries
+}
 // Function for adding players using the enter button above
 function addPlayerGreen(name, id) {
   // Make sure list has room and textboxes aren't empty

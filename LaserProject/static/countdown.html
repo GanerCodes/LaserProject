@@ -19,6 +19,7 @@
             countdownElement.innerHTML = (currentCount - 1).toString();
         } else {
             countdownElement.innerHTML = "Countdown Finished!";
+            setTimeout(() =>window.location.href="/game.html", 100);
         }
     }
 
