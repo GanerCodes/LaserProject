@@ -41,4 +41,8 @@ async function addPlayerToTeam(team) { // team ∈ {Green, Red}
   BID(T_teamDiv).insertBefore(para, BID(T_setupInput));
 }
 
-function redirectToCountdown() { window.location.href = "countdown.html"; }
+window.addEventListener("keydown", e => {
+    if(e.keyCode != 53 || e.target.nodeName == "INPUT") return;
+    e.preventDefault();
+    window.location.href = "/game.html";
+});
