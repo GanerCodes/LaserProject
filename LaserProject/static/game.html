@@ -88,15 +88,66 @@
         <div
           class="flex-1 md:w-3/4 bg-yellow-400 justify-center p-4 rounded shadow-lg"
         >
-          <h2 class="text-sm font-semibold text-white mb-4">Action</h2>
-          <div class="space-y-4" id="actionDiv">
-            <div class="w-full bg-black p-4 text-white rounded flex space-x-4"
-              >winning team</div
-            >
-            <div
-              class="w-full h-40 bg-black text-white p-4 rounded flex space-x-4"
-              >top 5</div
-            >
+          <h2 class="text-sm font-semibold text-white mb-4">Scoreboard</h2>
+          <!-- Winning Team Section -->
+          <div class="w-full bg-black p-4 text-white rounded mb-4">
+            <h3 class="mb-2 text-center">Winning Team</h3>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="border border-white p-2">Red Team Score</th>
+                  <th class="border border-white p-2">Winner</th>
+                  <th class="border border-white p-2">Green Team Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-white p-2">Red Team's Score</td>
+                  <td class="border border-white p-2">Winner's Name</td>
+                  <td class="border border-white p-2">Green Team's Score</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Top Players Section -->
+          <div class="w-full bg-black p-4 text-white rounded mb-4">
+            <h3 class="mb-2 text-center">Top Players</h3>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="border border-white p-2">Red Team</th>
+                  <th class="border border-white p-2">Green Team</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-white p-2">Red Top Player</td>
+                  <td class="border border-white p-2">Green Top Player</td>
+                </tr>
+                <!-- ... Add more rows if you have more top players ... -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Top 5 Section -->
+          <div class="w-full h-40 bg-black text-white p-4 rounded">
+            <h3 class="mb-2 text-center">Top 5</h3>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="border border-white p-2">Player</th>
+                  <th class="border border-white p-2">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-white p-2">PlayerName</td>
+                  <td class="border border-white p-2">10</td>
+                </tr>
+                <!-- ... Add more rows as needed ... -->
+              </tbody>
+            </table>
           </div>
         </div>
         <!-- Green Team Column -->
