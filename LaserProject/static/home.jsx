@@ -1,5 +1,4 @@
 var counts = { "Green": 0, "Red": 0 }
-
 async function addPlayerToTeam(team) { // team ∈ {Green, Red}
   const T_nameText = `${team}Name`;
   const T_idText = `${team}Id`;
@@ -42,5 +41,8 @@ async function addPlayerToTeam(team) { // team ∈ {Green, Red}
   BID(T_teamDiv).insertBefore(para, BID(T_setupInput));
 }
 
-function redirectToCountdown() { window.location.href = "countdown.html"; }
-
+window.addEventListener("keydown", e => {
+    if(e.keyCode != 53 || e.target.nodeName == "INPUT") return;
+    e.preventDefault();
+    window.location.href = "/game.html";
+});
