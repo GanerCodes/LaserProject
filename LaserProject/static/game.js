@@ -16,8 +16,17 @@ var greenPlayers= {
 
 var greenTotal; 
 
+var topPlayers = {
+   "Bob": 12,
+   "Jimmy": 12,
+   "Edgar": 11,
+   "Billy": 11,
+   "Matthew": 10
+};
+
 function onPageStartTest() {
-    alert("Hey man!  This is just a debug message to let you know that the script is running!");
+
+    alert("Hey!  This is just a debug message to let you know that the script is running!");
     var i = 0;
     // Add red players to html
     for (var name in redPlayers) {
@@ -51,6 +60,17 @@ function onPageStartTest() {
 
         i = i + 1;
     }
+
+    var topPlayersString = "";
+
+    for (var name in topPlayers) {
+        topPlayersString =  topPlayersString + "<br>" + name + " " + topPlayers[name];
+    }
+
+    document.getElementById("topPlayers").innerHTML = document.getElementById("topPlayers").innerHTML+topPlayersString;
+    console.log(topPlayersString);
+
+
 
     // <td class="border border-white p-2">PlayerName</td>
     // <td class="border border-white p-2 w-1/4">100</td>
