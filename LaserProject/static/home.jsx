@@ -31,10 +31,10 @@ async function addPlayerToTeam(team) { // team ∈ {Green, Red}
 
   counts[team]++;
   const para = 
-    <div class="nameIdFilled bg-white p-2 rounded">
+    <span class="nameIdFilled">
       <span class="textSpan"> {N} </span>
       <span class="textSpan"> {I} </span>
-    </div>;
+    </span>;
 
   BID(T_nameText).value = "";
   BID(T_idText).value = "";

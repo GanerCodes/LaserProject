@@ -9,20 +9,20 @@
     font-size: 48px;
 }
 
-.nameIdFilled {
+.playerInputField, .textSpan {
+    width: 100%;
+    margin: 3px;
+}
+.playerInputButton, .textSpan {
+    margin-left: 3px;
+    background: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 2px;
+}
+.nameIdInput, .nameIdFilled {
     padding: 5px;
     margin: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.nameIdInput {
-    padding: 5px;
-    margin: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.textSpan {
-    
 }
