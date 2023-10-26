@@ -1,16 +1,14 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laser Tag Game</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" />
+  <script src="game.js"></script>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laser Tag Game</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
-    />
-    <script src="game.js"></script>
-    <body onload="onPageStartTest()">
+<body onload="onPageStartTest()">
   </head>
+
   <body class="bg-gray-300 flex justify-center h-screen">
     <div class="text-center">
       <div class="flex gap-20">
@@ -22,63 +20,62 @@
               <table class="w-full max-w-full">
                 <thead>
                   <tr>
-                    <th id="hi" class="border border-white p-2">Player</th>
-                    <th id="bye" class="border border-white p-2 w-1/4">Scores</th>
+                    <th id="hi" class="border border-white p-2 text-white">Player</th>
+                    <th id="bye" class="border border-white p-2 w-1/4 text-white">Scores</th>
                   </tr>
                 </thead>
-                <tbody id = "redBody">
+                <tbody id="redBody">
                   <tr>
-                    <td id="redPlayers0" class="border border-white p-2">PlayerName</td>
-                    <td id="redScores0" class="border border-white p-2 w-1/4">100</td>
+                    <td id="redPlayers0" class="border border-white p-2 text-white">PlayerName</td>
+                    <td id="redScores0" class="border border-white p-2 w-1/4 text-white">100</td>
                   </tr>
                   <tr>
-                    <td id="redPlayers1" class="border border-white p-2">PlayerName</td>
-                    <td id="redScores1" class="border border-white p-2 w-1/4">100</td>
+                    <td id="redPlayers1" class="border border-white p-2 text-white"></td>
+                    <td id="redScores1" class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <tr>
-                    <td id="redPlayers2" class="border border-white p-2">PlayerName</td>
-                    <td id="redScores2"class="border border-white p-2 w-1/4">100</td>
+                    <td id="redPlayers2" class="border border-white p-2 text-white"></td>
+                    <td id="redScores2" class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <tr>
-                    <td id="redPlayers3" class="border border-white p-2">PlayerName</td>
-                    <td id="redScores3" class="border border-white p-2 w-1/4">100</td>
+                    <td id="redPlayers3" class="border border-white p-2 text-white"></td>
+                    <td id="redScores3" class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <!-- ... Add more rows as needed ... -->
                 </tbody>
               </table>
             </div>
           </div>
-          <div
-            class="w-full bg-black text-white p-4 rounded mt-4 overflow-x-auto"
-            ><table class="w-full max-w-full">
+          <div class="w-full bg-black text-white p-4 rounded mt-4 overflow-x-auto">
+            <table class="w-full max-w-full">
               <thead>
                 <tr>
-                  <th class="border border-white p-2">Red Player</th>
-                  <th class="border border-white p-2 w-1/4">Hit</th>
-                  <th class="border border-white p-2 w-1/4">Enemy Hit</th>
+                  <th class="border border-white p-2 text-white">Red Player</th>
+                  <th class="border border-white p-2 w-1/4 text-white">Hit</th>
+                  <th class="border border-white p-2 w-1/4text-white">Enemy Hit</th>
                 </tr>
               </thead>
               <tbody>
                 <!-- Sample row, replicate for actual data -->
                 <tr>
-                  <td class="border border-white p-2">PlayerName</td>
-                  <td class="border border-white p-2 w-1/4">HitDetail</td>
-                  <td class="border border-white p-2 w-1/4">EnemyHitDetail</td>
+                  <td class="border border-white p-2 text-white">PlayerName</td>
+                  <td class="border border-white p-2 w-1/4 text-white">HitDetail</td>
+                  <td class="border border-white p-2 w-1/4 text-white">EnemyHitDetail</td>
                 </tr>
                 <tr>
-                  <td class="border border-white p-2">PlayerName</td>
-                  <td class="border border-white p-2 w-1/4">HitDetail</td>
-                  <td class="border border-white p-2 w-1/4">EnemyHitDetail</td>
+                  <td class="border border-white p-2 text-white"></td>
+                  <td class="border border-white p-2 w-1/4 text-white"></td>
+                  <td class="border border-white p-2 w-1/4 text-white"></td>
                 </tr>
                 <tr>
-                  <td class="border border-white p-2">PlayerName</td>
-                  <td class="border border-white p-2 w-1/4">HitDetail</td>
-                  <td class="border border-white p-2 w-1/4">EnemyHitDetail</td>
+                  <td class="border border-white p-2 text-white"></td>
+                  <td class="border border-white p-2 w-1/4 text-white"></td>
+                  <td class="border border-white p-2 w-1/4 text-white"></td>
                 </tr>
                 <tr>
-                  <td class="border border-white p-2">PlayerName</td>
-                  <td class="border border-white p-2 w-1/4">HitDetail</td>
-                  <td class="border border-white p-2 w-1/4">EnemyHitDetail</td>
+                  <td class="border border-white p-2 text-white"></td>
+                  <td class="border border-white p-2 w-1/4 text-white"></td>
+                  <td class="border border-white p-2 w-1/4 text-white"></td>
                 </tr>
                 <!--... Add more rows as needed ... -->
               </tbody>
@@ -86,19 +83,11 @@
           </div>
         </div>
         <!-- Action Column-->
-        <div
-          class="flex-1 md:w-3/4 bg-yellow-400 justify-center p-4 rounded shadow-lg"
-        >
+        <div class="flex-1 md:w-3/4 bg-yellow-400 justify-center p-4 rounded shadow-lg">
           <h2 class="text-sm font-semibold text-white mb-4">Action</h2>
           <div class="space-y-4" id="actionDiv">
-            <div class="w-full bg-black p-4 text-white rounded flex space-x-4"
-              >winning team</div
-            >
-            <div
-              id = topPlayers
-              class="w-full h-40 bg-black text-white p-4 rounded flex space-x-4"
-              >TOP 5: </div
-            >
+            <div class="w-full bg-black p-4 text-white rounded flex space-x-4">winning team</div>
+            <div id=topPlayers class="w-full h-40 bg-black text-white p-4 rounded flex space-x-4">TOP 5: </div>
           </div>
         </div>
         <!-- Green Team Column -->
@@ -114,65 +103,56 @@
                     <th class="border border-white p-2 w-1/4">Scores</th>
                   </tr>
                 </thead>
-                <tbody id = "greenBody">
+                <tbody id="greenBody">
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
+                    <td id="greenPlayers0" class="border border-white p-2 text-white">PlayerName</td>
+                    <td id="greenScores0" class="border border-white p-2 w-1/4 text-white">100</td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
+                    <td id="greenPlayers1" class="border border-white p-2 text-white"></td>
+                    <td id="redPlayers1" class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
+                    <td id="greenPlayers2" class="border border-white p-2 text-white"></td>
+                    <td id="greenScores2" class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">100</td>
+                    <td id="greenPlayers3" class="border border-white p-2 text-white"></td>
+                    <td id="greenScoress3" class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div
-              class="w-full bg-black text-white p-4 rounded mt-4 overflow-x-auto"
-              ><table class="w-full max-w-full">
+            <div class="w-full bg-black text-white p-4 rounded mt-4 overflow-x-auto">
+              <table class="w-full max-w-full">
                 <thead>
                   <tr>
-                    <th class="border border-white p-2">Green Player</th>
-                    <th class="border border-white p-2 w-1/4">Hit</th>
-                    <th class="border border-white p-2 w-1/4">Enemy Hit</th>
+                    <th class="border border-white p-2 text-white">Green Player</th>
+                    <th class="border border-white p-2 w-1/4 text-white">Hit</th>
+                    <th class="border border-white p-2 w-1/4 text-white">Enemy Hit</th>
                   </tr>
                 </thead>
                 <tbody>
                   <!-- Sample row, replicate for actual data -->
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">HitDetail</td>
-                    <td class="border border-white p-2 w-1/4"
-                      >EnemyHitDetail</td
-                    >
+                    <td class="border border-white p-2 text-white">PlayerName</td>
+                    <td class="border border-white p-2 w-1/4 text-white">HitDetail</td>
+                    <td class="border border-white p-2 w-1/4 text-white">EnemyHitDetail</td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">HitDetail</td>
-                    <td class="border border-white p-2 w-1/4"
-                      >EnemyHitDetail</td
-                    >
+                    <td class="border border-white p-2 text-white"></td>
+                    <td class="border border-white p-2 w-1/4 text-white"></td>
+                    <td class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">HitDetail</td>
-                    <td class="border border-white p-2 w-1/4"
-                      >EnemyHitDetail</td
-                    >
+                    <td class="border border-white p-2 text-white"></td>
+                    <td class="border border-white p-2 w-1/4 text-white"></td>
+                    <td class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <tr>
-                    <td class="border border-white p-2">PlayerName</td>
-                    <td class="border border-white p-2 w-1/4">HitDetail</td>
-                    <td class="border border-white p-2 w-1/4"
-                      >EnemyHitDetail</td
-                    >
+                    <td class="border border-white p-2 text-white"></td>
+                    <td class="border border-white p-2 w-1/4 text-white"></td>
+                    <td class="border border-white p-2 w-1/4 text-white"></td>
                   </tr>
                   <!-- ... Add more rows as needed ... -->
                 </tbody>
@@ -183,4 +163,5 @@
       </div>
     </div>
   </body>
-</html>
+
+  </html>
