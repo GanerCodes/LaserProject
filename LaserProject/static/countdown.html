@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Countdown Timer with Music</title>
+    <title>Centered Countdown Timer</title>
 </head>
 <body>
 
-<audio id="backgroundMusic" loop>
-    <source src="test.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-<div id="countdown">10</div>
+<div class="countdown-container">
+    <div id="countdown">10</div>
+</div>
 
 <script>
     // Function to update the countdown
@@ -27,10 +24,6 @@
 
     // Update the countdown every second
     var countdownInterval = setInterval(updateCountdown, 1000);
-
-    // Play background music
-    var backgroundMusic = document.getElementById("backgroundMusic");
-    backgroundMusic.play();
 </script>
 
 </body>

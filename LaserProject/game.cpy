@@ -24,24 +24,33 @@ Player = NT("Player", ("name", "score"))
         ␡T[player]
     
     ⊢ handle_command(𝕊, cmd):
-        ¿"command"∉cmd: ↪(400, ‹Missing command›)
+        𝔼 = OP_UNARY_(⑴{"msg": x}, ⠶par_mul_)
+        ¿"command"∉cmd: ↪(400, 𝔼⨯‹Missing command›)
         ¿cmd["command"]≡"get_state":
             ↪ (200, 🢖get_state())
         ¿cmd["command"]≡"reset_game":
-            ↪ (200, ‹Reset game.›) ¿🢖reset_game()¡ (400, ‹Failed to reset game›)
+            ↪ (200, 𝔼⨯‹Reset game.›) ¿🢖reset_game()¡ (400, 𝔼⨯‹Failed to reset game›)
         ¿cmd["command"]≡"start_game":
-            ↪ (200, ‹Starting game.›) ¿🢖start_game()¡ (400, ‹Failed to start game›)
+            ↪ (200, 𝔼⨯‹Starting game.›) ¿🢖start_game()¡ (400, 𝔼⨯‹Failed to start game›)
+        ¿cmd["command"]≡"call_database":
+            req = 🢖database(⠶cmd)
+            req₁['code'] = req₀
+            ↪ (req₀, req₁)
         ¿cmd["command"]≡"player":
-            ¿🢖stage∉1⋄2: ↪(400, ‹Game already started!›)
-            ¿"id"∉cmd: ↪(400, ‹Missing id›)
-            ¿"team"∉cmd: ↪(400, ‹Missing team›)
-            ¿(team≔cmd["team"])∉"RGD": ↪(400, ‹Invalid team›)
-            play_id = cmd["id"]
+            ¿🢖stage∉1⋄2: ↪(400, 𝔼⨯‹Game already started!›)
+            ¿"id"∉cmd: ↪(400, 𝔼⨯‹Missing id›)
+            ¿"team"∉cmd: ↪(400, 𝔼⨯‹Missing team›)
+            ¿(team≔cmd["team"].upper())∉"RGD": ↪(400, 𝔼⨯‹Invalid team›)
+            
+            code, resp = 🢖database(ID=(play_id≔cmd["id"]))
+            ¿code≠200: ↪(400, 𝔼⨯‹Failed to pull player from DB: "{resp['msg']}" ›)
+            play_name = resp['name']
+            
             ⁅🢖remove_player(x, play_id) ∀x∈({⠤"RGD"}-{team,D❟})⁆
-            ¿team≡D❟: ↪(200, ‹Success›)
-            🢖teams[team][play_id] = Player("name", 0)
-            ↪(200, ‹Added player {play_id}›)
-        ↪(400, ‹Invalid command›)
+            ¿team≡D❟: ↪(200, 𝔼⨯‹Success›)
+            🢖teams[team][play_id] = Player(play_name, 0)
+            ↪(200, 𝔼⨯‹Added player {play_id}:{play_name}›)
+        ↪(400, 𝔼⨯‹Invalid command›)
     
     ⊢ reset_game(𝕊):
         🢖stage, 🢖teams = 1, ℵ(R={}, G={})
@@ -54,13 +63,14 @@ Player = NT("Player", ("name", "score"))
     ⊢ game_loop(𝕊):
         ¿state≠2: ↪𝔽
         
-        🢖start_time = time() + 30
-        ➰🢖state≡2: # 30s timeout 
+        🢖start_time = time() + 10
+        ➰🢖state≡2: # 10s timeout 
             ¿t<🢖start_time:
                 sleep(0.1) ; ↺
             🢖stage = 3
         ➰🢖stage≡3: # in-game
-            □
+            # do stuff
+            sleep(0.1)
     
     ⊢ get_state(𝕊): # Package up gamestate
         data = { "stage": 🢖stage,
