@@ -41,12 +41,17 @@ async function addPlayerToTeam(team, ID, NAME) {
     BID(T_teamDiv).insertBefore(para, BID(T_setupInput));
 }
 
+const startGame = async _ => {
+    await api({"command": "start_game"});
+    window.location.href = "/game.html";
+};
+
 window.addEventListener("keydown", async e => {
     if(e.target.nodeName == "INPUT" || ![53, 57].includes(e.keyCode)) return;
     e.preventDefault();
     
     if(e.keyCode == 53) {
-        window.location.href = "/game.html";
+        startGame();
     } else {
         await api({"command": "reset_game"});
         resetTeamsLocal(); } });

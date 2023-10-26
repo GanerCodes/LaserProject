@@ -63,13 +63,14 @@ Player = NT("Player", ("name", "score"))
     ⊢ game_loop(𝕊):
         ¿state≠2: ↪𝔽
         
-        🢖start_time = time() + 30
-        ➰🢖state≡2: # 30s timeout 
+        🢖start_time = time() + 10
+        ➰🢖state≡2: # 10s timeout 
             ¿t<🢖start_time:
                 sleep(0.1) ; ↺
             🢖stage = 3
         ➰🢖stage≡3: # in-game
-            □
+            # do stuff
+            sleep(0.1)
     
     ⊢ get_state(𝕊): # Package up gamestate
         data = { "stage": 🢖stage,
