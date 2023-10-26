@@ -21,5 +21,8 @@ const createElement = (tagName, attrs={}, ...children) => { // required for JSX
         Array.isArray(child) ? elem.append(...child) : elem.append(child)
     return elem; };
 
+const enobj = Object.entries;
+    
 const BID = (id) => document.getElementById(id);
 const VAL = (id) => BID(id).value;
+const QSA = (sel) => document.querySelectorAll(sel);
