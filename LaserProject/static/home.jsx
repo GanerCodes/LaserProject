@@ -64,8 +64,8 @@ const pullTeamsFromServer = async _ => {
     const teams = (await api({"command": "get_state"}))['teams'];
     resetTeamsLocal();
     enobj(teams['green']).forEach(([k, v]) => 
-        addPlayerToTeam("Green", k, v[0]));
+        addPlayerToTeam("Green", k, v.name));
     enobj(teams['red']).forEach(([k, v]) => 
-        addPlayerToTeam("Red", k, v[0])); }
+        addPlayerToTeam("Red", k, v.name)); }
 
 window.addEventListener("load", pullTeamsFromServer);

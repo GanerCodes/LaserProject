@@ -11,7 +11,7 @@ State:
     3: Started game (after 30s timeout)
     4: Concluded game
 🟑
-Player = NT("Player", ("name", "score"))
+Player = ⑵ℵ(name=x, score=y)
 Ω Game:
     ⊢ __init__(𝕊, database):
         🢖database, 🢖stage, 🢖teams = database, 0, □
@@ -61,11 +61,11 @@ Player = NT("Player", ("name", "score"))
         Thread(target=🢖game_loop).start() # Start the game loop
         ↪𝕋
     ⊢ game_loop(𝕊):
-        ¿state≠2: ↪𝔽
+        ¿🢖stage≠2: ↪𝔽
         
         🢖start_time = time() + 10
-        ➰🢖state≡2: # 10s timeout 
-            ¿t<🢖start_time:
+        ➰🢖stage≡2: # 10s timeout 
+            ¿(t≔time())<🢖start_time:
                 sleep(0.1) ; ↺
             🢖stage = 3
         ➰🢖stage≡3: # in-game
@@ -77,16 +77,16 @@ Player = NT("Player", ("name", "score"))
                  "teams": {
                       "red": 🢖teams.R,
                     "green": 🢖teams.G } }
-        ¿🢖stage≡2: data["start_time"] = 🢖start_time
+        ¿🢖stage≡2: data["start_time"] = getattr(𝕊, 'start_time', ¯1)
         ↪data
     
     ⊢ handle_client_message(𝕊, C, T):
         ¿🢖stage≠3: ↪
         
-        players = teams.R|teams.G
+        players = 🢖teams.R|🢖teams.G
         ¿ C∉players∨T∉players: ↪ # ID not on a team
         🢖server.transmit(C)
-        T = teams.R ¿C∈🢖teams.R¡ teams.G
+        T = 🢖teams.R ¿C∈🢖teams.R¡ 🢖teams.G
         T[C].score += 1 # update team score
         
         # TODO: update frontend?
