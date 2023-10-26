@@ -9,7 +9,7 @@ const update = async _ => {
     const teams = state["teams"];
     enobj(teams).forEach(([k,v]) =>
         BID(`${k}Body`).replaceChildren(...enobj(v).map(
-            ([k,v]) => makePlayerMemberElm(...v))));
+            ([k,v]) => makePlayerMemberElm(v.name, v.score))));
     
     print(state)
 }
