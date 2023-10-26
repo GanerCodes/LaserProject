@@ -4,8 +4,63 @@
     justify-content: center;
     align-items: center;
     height: 100vh; /* Center vertically within the viewport */
+    animation: circleAnimation 1s alternate infinite;
+}
+
+/* Apply background image to the container */
+.background-container {
+    background-image: url('images/logo.jpg'); /* Replace 'background.jpg' with the correct path to your image */
+    background-size: cover; /* Adjust to your preferred size */
+    background-position: center center; /* Center the image */
+    background-attachment: fixed; /* Optional: Fixed background scrolling */
+    height: 100vh; /* Set the container's height to the viewport's height */
+    text-align: center; /* Center text horizontally */
+    color: white; /* Text color */
+    padding: 20px; /* Add padding for better readability */
+}
+
+.circle {
+    background-color: red; /* Change the background color to your preference */
+    border-radius: 50%;
+    width: 700px;
+    height:700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #countdown {
-    font-size: 48px;
+    font-size: 80px;
+    animation: countdownAnimation 1s alternate infinite;
+}
+
+@keyframes countdownAnimation {
+    0% {
+        transform: scale(1);
+        color: green;
+    }
+    50% {
+        transform: scale(1.2);
+        color: yellow;
+    }
+    100% {
+        transform: scale(1);
+        color: green;
+    }
+}
+
+@keyframes circleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transfrom: scale(1);
+    }
 }
