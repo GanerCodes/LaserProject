@@ -10,3 +10,4 @@ cd -
 ./Building/cpy/bin/cpy_binary -m pip install -r requirements.txt
 sh ./build
 ```
+After running ./build, open `http://localhost:8000` in your browser.
