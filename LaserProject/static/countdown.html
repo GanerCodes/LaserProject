@@ -3,6 +3,11 @@
 <head>
     <title>Countdown Timer</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        * {
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     
@@ -25,8 +30,10 @@
 
         if (currentCount > 0) {
             countdownElement.innerHTML = (currentCount - 1).toString();
-        } else {
+        } else if(currentCount == 0) {
             countdownElement.innerHTML = "Begin!";
+        } else {
+            window.location.href = "/game.html";
         }
     }
 
