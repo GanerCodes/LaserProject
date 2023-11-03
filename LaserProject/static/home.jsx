@@ -43,7 +43,7 @@ async function addPlayerToTeam(team, ID, NAME) {
 
 const startGame = async _ => {
     await api({"command": "start_game"});
-    window.location.href = "/game.html";
+    window.location.href = "/countdown.html";
 };
 
 window.addEventListener("keydown", async e => {
