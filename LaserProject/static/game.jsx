@@ -17,7 +17,7 @@ const update = async _ => {
             ([k,v]) => makePlayerMemberElm(v.name, v.score))));
     enobj(state["actions"]).forEach(([k,v]) =>
         BID(`${k}Hits`).replaceChildren(...enobj(v).map(
-            ([k,v]) => makeHitElm(v.player, v.target))));
+            ([k,v]) => v.map(v => makeHitElm(v.player, v.target))))); // broken!
     
     print(state)
 }
