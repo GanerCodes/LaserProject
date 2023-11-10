@@ -1,5 +1,5 @@
 1. Make sure you are using a linux environment
-2. Install npm, python, c++ build tools
+2. Install npm, python, c++ build tools (gcc, make, etc.)
 3. Run the following commands:
 ```shell
 git clone --recurse-submodules https://github.com/GanerCodes/LaserProject
