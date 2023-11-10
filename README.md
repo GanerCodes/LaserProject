@@ -4,7 +4,7 @@
 ```shell
 git clone --recurse-submodules https://github.com/GanerCodes/LaserProject
 cd ./LaserProject
-cd ./Building/cpy/built+test/
+cd ./Building/cpy/build+test/
 sh ./build.sh
 cd -
 ./Building/cpy/bin/cpy_binary -m pip install -r requirements.txt
