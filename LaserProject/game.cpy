@@ -11,12 +11,16 @@ State:
     3: Started game (after 30s timeout)
     4: Concluded game
 🟑
-Player = NT("Player", ("name", "score"))
+Player = ⑵ℵ(name=x, score=y)
 Ω Game:
+    ⊢ reset_game(𝕊):
+        🢖stage, 🢖teams, 🢖actions = 1, ℵ(R={}, G={}), ℵ(R=[], G=[])
+        ↪𝕋
+    
     ⊢ __init__(𝕊, database):
-        🢖database, 🢖stage, 🢖teams = database, 0, □
-        🢖server = Socket_Server(🢖handle_client_message)
+        🢖database = database
         🢖reset_game()
+        🢖server = Socket_Server(🢖handle_client_message)
         Thread(target=🢖server).start() # Start TCP Server
     
     ⊢ remove_player(𝕊, team, player):
@@ -52,40 +56,43 @@ Player = NT("Player", ("name", "score"))
             ↪(200, 𝔼⨯‹Added player {play_id}:{play_name}›)
         ↪(400, 𝔼⨯‹Invalid command›)
     
-    ⊢ reset_game(𝕊):
-        🢖stage, 🢖teams = 1, ℵ(R={}, G={})
-        ↪𝕋
     ⊢ start_game(𝕊):
         ¿🢖stage≠1: ↪
         🢖stage=2
         Thread(target=🢖game_loop).start() # Start the game loop
         ↪𝕋
+    
     ⊢ game_loop(𝕊):
-        ¿state≠2: ↪𝔽
+        ¿🢖stage≠2: ↪𝔽
         
-        🢖start_time = time() + 30
-        ➰🢖state≡2: # 30s timeout 
-            ¿t<🢖start_time:
+        🢖start_time = time() + 10
+        ➰🢖stage≡2: # 10s timeout 
+            ¿(t≔time())<🢖start_time:
                 sleep(0.1) ; ↺
             🢖stage = 3
         ➰🢖stage≡3: # in-game
-            □
+            # do stuff
+            sleep(0.1)
     
     ⊢ get_state(𝕊): # Package up gamestate
         data = { "stage": 🢖stage,
                  "teams": {
                       "red": 🢖teams.R,
-                    "green": 🢖teams.G } }
-        ¿🢖stage≡2: data["start_time"] = 🢖start_time
+                    "green": 🢖teams.G },
+                 "actions": {
+                      "red": 🢖actions.R,
+                    "green": 🢖actions.G } }
+        ¿🢖stage≡2:
+            data["start_time"] = getattr(𝕊, 'start_time', ¯1)
         ↪data
     
     ⊢ handle_client_message(𝕊, C, T):
         ¿🢖stage≠3: ↪
         
-        players = teams.R|teams.G
+        players = 🢖teams.R|🢖teams.G
         ¿ C∉players∨T∉players: ↪ # ID not on a team
         🢖server.transmit(C)
-        T = teams.R ¿C∈🢖teams.R¡ teams.G
-        T[C].score += 1 # update team score
+        T = 🢖teams[Tn ≔ 'GR'[C∈🢖teams.R]]
         
-        # TODO: update frontend?
+        T[C].score += 1 # update team score
+        🢖actions[Tn] += [𝒹(player=C, target=T)] # add action

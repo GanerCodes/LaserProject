@@ -1,13 +1,15 @@
+<html>
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Laser Tag Game</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" />
+  
+  <script src="base.js"></script>
+  <script src="global.js"></script>
   <script src="game.js"></script>
-
-<body onload="onPageStartTest()">
-  </head>
+</head>
 
   <body class="bg-gray-300 flex justify-center h-screen">
     <div class="text-center">
@@ -99,8 +101,8 @@
               <table class="w-full max-w-full">
                 <thead>
                   <tr>
-                    <th class="border border-white p-2 text-white">Player</th>
-                    <th class="border border-white p-2 w-1/4 text-white">Scores</th>
+                    <th class="border border-white p-2">Player</th>
+                    <th class="border border-white p-2 w-1/4">Scores</th>
                   </tr>
                 </thead>
                 <tbody id="greenBody">
