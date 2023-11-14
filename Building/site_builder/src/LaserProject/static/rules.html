@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laser Tag Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+    />
+    <script src="home.js"></script>
+  </head>
+  <body class="bg-black flex justify-center items-center h-screen">
+    <div class="bg-gray-500 p-8 rounded shadow-lg">
+      <div class="text-center">
+        <h1 class="text-3xl text-white font-bold mb-4">Game Rules</h1>
+
+        <div class="flex gap-8">
+          <!-- Red Team Column -->
+          <div class="bg-gray-400 p-4 rounded shadow-lg">
+            <h2 class="text-2xl font-semibold text-white mb-4">Player Speed</h2>
+            <div class="space-y-4" id="redTeamDiv">
+              <div class="bg-white p-4 rounded flex space-x-4" id="EntryBoxRed">
+                <input
+                  class="w-full border p-2"
+                  type="text"
+                  placeholder="Speed (%)"
+                  id="nameTextRed1"
+                />
+            </div>
+            <h2 class="text-2xl font-semibold text-white mb-4">Firing Speed</h2>
+            <div class="space-y-4" id="redTeamDiv">
+              <div class="bg-white p-4 rounded flex space-x-4" id="EntryBoxRed">
+                <input
+                  class="w-full border p-2"
+                  type="text"
+                  placeholder="Speed (%)"
+                  id="nameTextRed1"
+                />
+            </div>
+          </div>
+          <h2 class="text-2xl font-semibold text-white mb-4">Health</h2>
+            <div class="space-y-4" id="redTeamDiv">
+              <div class="bg-white p-4 rounded flex space-x-4" id="EntryBoxRed">
+                <input
+                  class="w-full border p-2"
+                  type="text"
+                  placeholder="Health Amount"
+                  id="nameTextRed1"
+                />
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- After the columns (Red and Green) -->
+      <div class="mt-8 justify-between">
+        <button
+          class="w-36 bg-gray-400 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded"
+          >Save Changes</button
+        >
+        <button
+          class="w-36 bg-gray-400 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded"
+          ><a href="home.html">Go Back</a></button
+        >
+      </div>
+    </div>
+  </body>
+</html>
