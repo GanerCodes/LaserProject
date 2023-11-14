@@ -3,6 +3,7 @@ const ASCII_CHARS_STANDARD = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx
 
 const print = (...x) => console.log(...x) || x[0]
 const all = A => A.every(x=>x);
+const sort = (A,f,r=𝔽) => A.sort((a,b) => (r ? 1 : -1)*(b > a ? 1 : -1))
 const range = (a, b) => [...Array(b-a).keys()].map(i => i+a);
 const sleep = s => new Promise(r => setTimeout(r, 1000 * s));
 const enobj = Object.entries;

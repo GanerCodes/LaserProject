@@ -13,11 +13,16 @@ const update = async _ => {
     const state = (await api({"command": "get_state"}));
     
     print("Got state", state);
+    const scores = {};
     enobj(state["teams"]).forEach(([k,v]) =>
         BID(`${k}Body`).replaceChildren(...enobj(v).map(
-            ([k,v]) => makePlayerMemberElm(v.name, v.score))));
+            ([k,v]) => makePlayerMemberElm(v.name, scores[v.name]=v.score))));
     enobj(state["actions"]).forEach(([k,v]) =>
         BID(`${k}Hits`).replaceChildren(
             ...v.map(v => makeHitElm(v.player, v.target))));
+    
+    let topScores = enobj(scores);
+    sort(topScores, (x=>x[1]), 𝕋);
+    BID("topPlayers").replaceChildren(...topScores.map(x => makePlayerMemberElm(...x)));
 }
 window.addEventListener("load", _ => setInterval(update, 1000));
