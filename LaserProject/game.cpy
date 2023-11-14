@@ -70,6 +70,8 @@ Player = ⑵ℵ(name=x, score=y)
             ¿(t≔time())<🢖start_time:
                 sleep(0.1) ; ↺
             🢖stage = 3
+        
+        🢖server.transmit("202") 🟑Start Game🟑
         ➰🢖stage≡3: # in-game
             # do stuff
             sleep(0.1)
@@ -92,7 +94,7 @@ Player = ⑵ℵ(name=x, score=y)
         players = 🢖teams.R|🢖teams.G
         ¿ C∉players∨T∉players: ↪ # ID not on a team
         🢖server.transmit(C)
-        T = 🢖teams[Tn ≔ 'GR'[C∈🢖teams.R]]
+        C_Team = 🢖teams[Tn ≔ 'GR'[C∈🢖teams.R]]
         
-        T[C].score += 1 # update team score
+        C_Team[C].score += 1 # update team score
         🢖actions[Tn] += [𝒹(player=C, target=T)] # add action
