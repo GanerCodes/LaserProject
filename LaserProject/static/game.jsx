@@ -3,11 +3,18 @@ const makePlayerMemberElm = (n, s) =>
         <td class="border border-white p-2 text-white"> {n} </td>
         <td class="border border-white p-2 w-1/4 text-white"> {s} </td>
     </tr>);
+    
 const makeHitElm = (n, t) => 
     (<tr>
         <td class="border border-white p-2 text-white"> {n} </td>
         <td class="border border-white p-2 w-1/4 text-white"> {t} </td>
     </tr>);
+
+const makeTopPlayerMemberElm = (n, s) => 
+    (<p1>
+        <div class="text-sm font-semibold text-white mb-4"> Player: {n} | Score: {s} </div>
+    </p1>);
+
 
 const update = async _ => {
     const state = (await api({"command": "get_state"}));
@@ -23,6 +30,6 @@ const update = async _ => {
     
     let topScores = enobj(scores);
     sort(topScores, (x=>x[1]), 𝕋);
-    BID("topPlayers").replaceChildren(...(topScores.slice(0,3)).map(x => makePlayerMemberElm(...x)));
+    BID("topPlayers").replaceChildren(...(topScores.slice(0,3)).map(x => makeTopPlayerMemberElm(...x)));
 }
 window.addEventListener("load", _ => setInterval(update, 1000));
