@@ -23,6 +23,6 @@ const update = async _ => {
     
     let topScores = enobj(scores);
     sort(topScores, (x=>x[1]), 𝕋);
-    BID("topPlayers").replaceChildren(...topScores.map(x => makePlayerMemberElm(...x)));
+    BID("topPlayers").replaceChildren(...(topScores.slice(0,3)).map(x => makePlayerMemberElm(...x)));
 }
 window.addEventListener("load", _ => setInterval(update, 1000));
