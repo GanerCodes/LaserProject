@@ -12,13 +12,12 @@ const makeHitElm = (n, t) =>
 const update = async _ => {
     const state = (await api({"command": "get_state"}));
     
+    print("Got state", state);
     enobj(state["teams"]).forEach(([k,v]) =>
         BID(`${k}Body`).replaceChildren(...enobj(v).map(
             ([k,v]) => makePlayerMemberElm(v.name, v.score))));
     enobj(state["actions"]).forEach(([k,v]) =>
-        BID(`${k}Hits`).replaceChildren(...enobj(v).map(
-            ([k,v]) => v.map(v => makeHitElm(v.player, v.target))))); // broken!
-    
-    print(state)
+        BID(`${k}Hits`).replaceChildren(
+            ...v.map(v => makeHitElm(v.player, v.target))));
 }
 window.addEventListener("load", _ => setInterval(update, 1000));
