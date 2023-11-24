@@ -5,7 +5,6 @@
 
 🟑
 State:
-    0: Pre-start
     1: Created lobby
     2: Starting game (in game loop)
     3: Started game (after 30s timeout)
@@ -69,11 +68,11 @@ Player = ⑵ℵ(name=x, score=y)
         ➰🢖stage≡2: # 10s timeout 
             ¿(t≔time())<🢖start_time:
                 sleep(0.1) ; ↺
-            🢖stage = 3
+            🢖stage=3
         
         🢖server.transmit("202") 🟑Start Game🟑
         ➰🢖stage≡3: # in-game
-            # do stuff
+            # do stuff, 󰤱 end condition
             sleep(0.1)
     
     ⊢ get_state(𝕊): # Package up gamestate

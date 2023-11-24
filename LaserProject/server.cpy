@@ -38,6 +38,11 @@ game = Game(database)
 ⊢ on_get(path):
     ¿path∈"/": path = "index.html"
     
+    ¿(a≔(path.split(.❟,1))₀) ∈ (p≔⍭("home countdown game endscreen")):
+        ¿a≠(c≔p[gameˢᵗᵃᵍᵉ-1]):
+            ☾(a, c, gameˢᵗᵃᵍᵉ-1, p[gameˢᵗᵃᵍᵉ-1])
+            ↪‹<script>window.location.href="/{c}.html"</script>›☾
+    
     # Anti directory-traversal
     path = safe_join(app.static_folder, path)
     ¿path≡□: ↪Reply.invalid
