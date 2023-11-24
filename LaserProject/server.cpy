@@ -40,7 +40,7 @@ game = Game(database)
     
     ¿(a≔(path.split(.❟,1))₀) ∈ (p≔⍭("home countdown game endscreen")):
         ¿a≠(c≔p[gameˢᵗᵃᵍᵉ-1]):
-            ↪‹<script>window.location.href="/{c}.html"</script>›☾
+            ↪‹<script>window.location.href="/{c}.html"</script>›
     
     # Anti directory-traversal
     path = safe_join(app.static_folder, path)
