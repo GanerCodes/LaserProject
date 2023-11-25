@@ -15,19 +15,19 @@ async function addPlayerToTeam(team, ID, NAME) {
                 "command": "call_database",
                 "name": N,
                 "ID": I }); // add to DB
-            if(𝕣['status'] != 200) return alert("NO");
+            if(𝕣['status'] != 200) return alert("Unexpected error adding to player to database!");
         }else{
             const 𝕣 = await api({
                 "command": "call_database",
                 "ID": I }); // get name
-            if(𝕣['status'] != 200) return alert("NO");
+            if(𝕣['status'] != 200) return alert("Player not found! Add a name to add to database.");
             N = 𝕣["name"]; }
 
         const 𝕣 = await api({
             "command": "player",
             "id": I,
             "team": team.charAt(0)})
-        if(𝕣['status'] != 200) return alert("NO"); }
+        if(𝕣['status'] != 200) return alert("Unexpected error!"); }
 
     counts[team]++;
     const para = 

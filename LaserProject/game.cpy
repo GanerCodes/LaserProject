@@ -82,10 +82,11 @@ Player = ⑵ℵ(name=x, score=y, B=𝔽)
             sleep(0.1)
     
     ⊢ get_state(𝕊): # Package up gamestate
+        TS = ①sorted(x.values(), key=①x.score, reverse=𝕋)
         data = { "stage": 🢖stage,
                  "teams": {
-                      "red": 🢖teamsᴿ,
-                    "green": 🢖teamsᴳ },
+                      "red": TS(🢖teamsᴿ),
+                    "green": TS(🢖teamsᴳ) },
                  "actions": {
                       "red": 🢖actionsᴿ,
                     "green": 🢖actionsᴳ } }

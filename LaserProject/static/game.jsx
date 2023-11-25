@@ -19,6 +19,18 @@ const makeTopPlayerMemberElm = (n, s) =>
         <div class="text-sm font-semibold text-white mb-4"> Player: {n} | Score: {s} </div>
     </p1>);
 
+// https://stackoverflow.com/a/54024653
+const hsv2rgb = (h,s,v,f=(n,k=(n+h/60)%6)=>v-v*s*Math.max(Math.min(k,4-k,1),0))=>[f(5),f(3),f(1)];
+
+[rTot, gTot] = [0, 0];
+setInterval(_ => {
+    const RGB = hsv2rgb((+new Date() / 5.95) % 360, 1.0, 1.0).map(x=>255*x);
+    const c = [`color:#FFF`, `color:rgb(${RGB[0]},${RGB[1]},${RGB[2]})`];
+    BID("totalStatus").replaceChildren(
+        <div style={c[+(rTot>=gTot)]}>{rTot}</div>,
+        <div>|</div>,
+        <div style={c[+(gTot>=rTot)]}>{gTot}</div>) },
+    60 / 1000);
 
 const update = async _ => {
     const state = (await api({"command": "get_state"}));
@@ -32,16 +44,11 @@ const update = async _ => {
         BID(`${k}Hits`).replaceChildren(
             ...v.map(v => makeHitElm(v.player, v.target))));
     
-    const [rTot, gTot] = enobj(state["teams"])
+    [rTot, gTot] = enobj(state["teams"])
         .map(([_,V]) => 
             enobj(V)
                 .map(([k,v]) => v.score)
                 .reduce((x,y)=>x+y, 0));
-    
-    BID("totalStatus").replaceChildren(
-        <div >{rTot}</div>,
-        <div>|</div>,
-        <div >{gTot}</div>);
     
     const [h,s] = state["end_time"];
     BID("timeDisplay").innerHTML = `${h}:${s}`;
