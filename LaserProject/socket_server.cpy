@@ -20,15 +20,15 @@
     ⊢ __call__(𝕊):
         ➰𝕋: # TCP server loop
             data, (ip, port) = 🢖Sock_R.recvfrom(1024)
-            ☾⨯‹Laser says: {data}›
+            ☾ ‹Laser says: {data}›
             ¿ :❟∉(data≔data.decode()): # malformed input
-                ☾⨯‹Unable to process: "{data}\"› ; ↺
+                ☾ ‹Unable to process: "{data}\"› ; ↺
             
             C, T = data.split(:❟,1) # Shooter ID, target ID
             ¿C∉🢖Clients:
                 🢖Clients[C] = ip
-                ☾⨯‹Added client {C} - {ip}›
+                ☾ ‹Added client {C} - {ip}›
             ⸘(p≔🢖Clients[C])≠ip:
                 🢖Clients[C] = ip
-                ☾⨯‹Changed {C}'s IP: {p}→{ip}›
+                ☾ ‹Changed {C}'s IP: {p}→{ip}›
             🢖handle_client_message(C, T)

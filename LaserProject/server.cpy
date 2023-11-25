@@ -33,13 +33,13 @@ game = Game(database)
     code, msg = game.handle_command(data)
     ↪ jsonify(msg), code
 
-@app.route(/❟, defaults={"path": ᐦ})
+@app.route(/❟, defaults=𝒹(path=ᐦ))
 @app.route("/<path:path>")
 ⊢ on_get(path):
     ¿path∈"/": path = "index.html"
     
-    ¿(a≔(path.split(.❟,1))₀) ∈ (p≔⍭("home countdown game endscreen")):
-        ¿a≠(c≔p[gameˢᵗᵃᵍᵉ-1]):
+    ¿(a≔(path.split(.❟,1))₀) ∈ (p≔⍭"home countdown game endscreen"):
+        ¿a≠(c≔p[game.stage-1]):
             ↪‹<script>window.location.href="/{c}.html"</script>›
     
     # Anti directory-traversal

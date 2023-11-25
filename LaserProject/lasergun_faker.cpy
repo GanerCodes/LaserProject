@@ -46,7 +46,7 @@ Print_Srv_Command(command="get_state")
      (rec_sock ≔ NET.socket(NET.AF_INET, NET.SOCK_DGRAM)).bind((ADDRESS, 7500))
      ➰𝕋:
           data, (ip, port) = rec_sock.recvfrom(1024)
-          ☾⨯‹Revieved data: "{data.decode()}" from {ip}:{port}›
+          ☾ ‹Revieved data: "{data.decode()}" from {ip}:{port}›
 Thread(target=reader).start()
 
 sock = NET.socket(NET.AF_INET, NET.SOCK_DGRAM)

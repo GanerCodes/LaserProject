@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-gray-300 flex justify-center h-screen">
-  <div class="text-center">
+  <div class="text-center" style="width:100%; height:100%; margin:25px">
     <div class="flex gap-20">
       <!-- Red Team Column -->
       <div class="flex-1 md:w-3/4 bg-red-400 p-4 rounded shadow-lg">
@@ -22,7 +22,7 @@
             <table class="w-full max-w-full">
               <thead><tr>
                 <th class="border border-white p-2 text-white">Player</th>
-                <th class="border border-white p-2 w-1/4 text-white">Scores</th>
+                <th class="border border-white p-2 w-2/5 text-white">Score</th>
               </tr></thead>
               <tbody id="redBody"></tbody>
             </table>
@@ -32,7 +32,7 @@
           <table class="w-full max-w-full">
             <thead><tr>
               <th class="border border-white p-2 text-white">Red Player</th>
-            <th class="border border-white p-2 w-1/4 text-white">Enemy Hit</th>
+              <th class="border border-white p-2 w-2/5 text-white">Enemy Hit</th>
             </tr></thead>
             <tbody id="redHits"></tbody>
           </table>
@@ -41,8 +41,11 @@
       <!-- Action Column-->
       <div class="flex-1 md:w-3/4 bg-yellow-400 justify-center p-4 rounded shadow-lg">
         <h2 class="text-sm font-semibold text-white mb-4">Action</h2>
+        <h3 id="timeDisplay" class="text-sm font-semibold text-white mb-4"></h3>
         <div class="space-y-4" id="actionDiv">
-          <div class="w-full bg-black p-4 text-white rounded flex space-x-4">winning team</div>
+          <span id="totalStatus" style="padding-left: 8px; padding-right: 8px"
+                class="w-full bg-black p-4 text-white rounded flex align-center justify-center space-between space-x-4"></span>
+          <!-- ↑ This thing doesn't space the elements evenly and its annoying -->
           <h2 class="text-sm font-semibold text-white mb-4">Top 3 Players</h2>
           <div class="flex-1 bg-black p-4 rounded shadow-lg">
           <div class="space-y-4" id="topPlayers">
@@ -59,7 +62,7 @@
             <table class="w-full max-w-full">
               <thead><tr>
                 <th class="border border-white p-2 text-white">Player</th>
-                <th class="border border-white p-2 w-1/4 text-white">Scores</th>
+                <th class="border border-white p-2 w-2/5 text-white">Score</th>
               </tr></thead>
               <tbody id="greenBody"></tbody>
             </table>
@@ -68,7 +71,7 @@
             <table class="w-full max-w-full">
               <thead><tr>
                 <th class="border border-white p-2 text-white">Green Player</th>
-                <th class="border border-white p-2 w-1/4 text-white">Enemy Hit</th>
+                <th class="border border-white p-2 w-2/5 text-white">Enemy Hit</th>
               </tr></thead>
               <tbody id="greenHits"></tbody>
             </table>
