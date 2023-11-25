@@ -7,6 +7,7 @@
 ⮌ werkzeug.security ⨡ safe_join
 ⮌ waitress ⨡ serve as w_serve
 ⮌ threading ⨡ Thread
+⮌ urllib.parse ⨡ quote as 𝐪
 
 ⮌ game ⨡ Game
 ⮌ database ⨡ database
@@ -29,6 +30,9 @@ game = Game(database)
 ⊢ on_post():
     data = request.get_json()
     ¿¬data: ↪Reply.invalid # we only accept JSON here
+    
+    ¿"command" ∈ data ∧ data["command"]≡"get_songs":
+        ↪ jsonify([𝐪𐞂‹/static/music/{x}›∀x∈os.listdir("./static/music/")]), 200
     
     code, msg = game.handle_command(data)
     ↪ jsonify(msg), code

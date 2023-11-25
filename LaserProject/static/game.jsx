@@ -1,3 +1,14 @@
+(async _ => {
+    const songs = await api({"command": "get_songs"});
+    const musicElm = BID("musicPlayer");
+    const playSong = _ => {
+        const song = songs[Math.floor(Math.random() * songs.length)];
+        musicElm.src = song;
+        musicElm.play(); };
+    musicElm.addEventListener("ended", playSong, false);
+    playSong();
+})();
+
 const makePlayerMemberElm = (n, s, B) => 
     (<tr>
         <td class="border border-white p-2 text-white">
