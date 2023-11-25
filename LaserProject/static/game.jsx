@@ -2,8 +2,8 @@ const makePlayerMemberElm = (n, s, B) =>
     (<tr>
         <td class="border border-white p-2 text-white">
             <text class="text-bold text-red"
-                  style={`color:red; display:${B?"":"none"}`}> ℬ </text>
-            {n} 
+                  style={`font-weight:bold;color:#99F;display:${B?"":"none"}`}> ℬ </text>
+            <text> {n} </text>
         </td>
         <td class="border border-white p-2 w-1/4 text-white"> {s} </td>
     </tr>);

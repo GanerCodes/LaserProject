@@ -65,7 +65,7 @@ Player = ⑵ℵ(name=x, score=y, B=𝔽)
     ⊢ game_loop(𝕊):
         ¿🢖stage≠2: ↪𝔽
         
-        🢖start_time = time() + 10
+        🢖start_time = time() + 11.75 # in game timer lasts long
         ➰🢖stage≡2: # 10s timeout 
             ¿(t≔time())<🢖start_time:
                 sleep(0.1) ; ↺
@@ -74,10 +74,8 @@ Player = ⑵ℵ(name=x, score=y, B=𝔽)
         🢖server.transmit("202") 🟑Start Game🟑
         🢖end_time = time() + 5⨯60
         ➰🢖stage≡3: # in-game
-            # do stuff, 󰤱 end condition
             ¿time() > 🢖end_time:
-                🢖stage≡4
-                ⇥
+                🢖stage≡4 ; ⇥
             sleep(0.1)
         ∀_∈0…3: 🟑End Game🟑
             🢖server.transmit("221")
@@ -94,8 +92,9 @@ Player = ⑵ℵ(name=x, score=y, B=𝔽)
         ¿🢖stage≡2:
             data["start_time"] = getattr(𝕊, "start_time", ¯1)
         ⸘🢖stage≡3:
-            data["end_time"] = \
-                divmod(𝒾(getattr(𝕊, "end_time", ¯1) - time()), 60)
+            m,s = divmod(𝒾(getattr(𝕊, "end_time", ¯1) - time()), 60)
+            s = (ƨs).zfill(2)
+            data["end_time"] = m⋄s
         ↪data
     
     ⊢ handle_client_message(𝕊, C, T):
@@ -105,8 +104,6 @@ Player = ⑵ℵ(name=x, score=y, B=𝔽)
         
         C_Team = 🢖teams[Tn ≔ 'GR'[C∈🢖teamsᴿ]]
         P = C_Team󰂕
-        
-        ☾ C⋄T⋄P
         
         ⊢ u(P, 𝕥):
             ¿Tn≠𝕥: ↪
