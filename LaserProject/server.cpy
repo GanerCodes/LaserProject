@@ -7,6 +7,7 @@
 ⮌ werkzeug.security ⨡ safe_join
 ⮌ waitress ⨡ serve as w_serve
 ⮌ threading ⨡ Thread
+⮌ urllib.parse ⨡ quote as 𝐪
 
 ⮌ game ⨡ Game
 ⮌ database ⨡ database
@@ -30,13 +31,20 @@ game = Game(database)
     data = request.get_json()
     ¿¬data: ↪Reply.invalid # we only accept JSON here
     
+    ¿"command" ∈ data ∧ data["command"]≡"get_songs":
+        ↪ jsonify([𝐪𐞂‹/static/music/{x}›∀x∈os.listdir("./static/music/")]), 200
+    
     code, msg = game.handle_command(data)
     ↪ jsonify(msg), code
 
-@app.route(/❟, defaults={"path": ᐦ})
+@app.route(/❟, defaults=𝒹(path=ᐦ))
 @app.route("/<path:path>")
 ⊢ on_get(path):
     ¿path∈"/": path = "index.html"
+    
+    ¿(a≔(path.split(.❟,1))₀) ∈ (p≔⍭"home countdown game endscreen"):
+        ¿a≠(c≔p[game.stage-1]):
+            ↪‹<script>window.location.href="/{c}.html"</script>›
     
     # Anti directory-traversal
     path = safe_join(app.static_folder, path)

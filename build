@@ -9,4 +9,4 @@ rm -rf ./dest || :
 sh "${WEBTEMPLATER_PATH}" ./LaserProject ./dest
 cd dest
 clear
-sh "${CPY_PATH}/cpy" server.py
+sh "${CPY_PATH}/cpy" -r server.py
