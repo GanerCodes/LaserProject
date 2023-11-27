@@ -1,1 +1,50 @@
-TODO
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laser Tag Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="base.js"></script>
+    <script src="global.js"></script>
+    <script src="home.js"></script>
+  </head>
+  <body class="bg-gray-400 flex justify-center items-center h-screen">
+    <div class="text-center p-8 bg-gray-500 rounded shadow-lg">
+      <h1 class="text-3xl font-bold mb-4">Final Rankings</h1>
+
+      <div class="flex gap-8">
+        <!-- Red Team Column -->
+        <div class="w-1/2 bg-red-500 p-4 rounded shadow-lg">
+          <h2 class="text-lg font-semibold text-white mb-4">Red Team</h2>
+          <div id="RedTeamDiv">
+            <!-- Example content for Red Team's final rankings -->
+            <ul>
+              <li>Player 1 - Score: 150</li>
+              <li>Player 2 - Score: 120</li>
+              <!-- Add more players as needed -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Green Team Column -->
+        <div class="w-1/2 bg-green-500 p-4 rounded shadow-lg">
+          <h2 class="text-lg font-semibold text-white mb-4">Green Team</h2>
+          <div id="GreenTeamDiv">
+            <!-- Example content for Green Team's final rankings -->
+            <ul>
+              <li>Player 3 - Score: 140</li>
+              <li>Player 4 - Score: 110</li>
+              <!-- Add more players as needed -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
