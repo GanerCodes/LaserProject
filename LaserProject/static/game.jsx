@@ -55,7 +55,7 @@ const update = async _ => {
         BID(`${k}Hits`).replaceChildren(
             ...v.map(v => makeHitElm(v.player, v.target))));
     
-    [rTot, gTot] = enobj(state["teams"])
+    [gTot, rTot] = enobj(state["teams"])
         .map(([_,V]) => 
             enobj(V)
                 .map(([k,v]) => v.score)

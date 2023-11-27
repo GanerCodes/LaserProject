@@ -2,7 +2,7 @@
 
 Ω Socket_Server:
     ADDRESS = "0.0.0.0"
-    PORT_B, PORT_R = 7500, 7501 # Broadcast, Recieve
+    PORT_R, PORT_B = 7500, 7501 # Broadcast, Recieve
     
     ⊢ __init__(𝕊, handler):
         🢖Sock_B = NET.socket(NET.AF_INET, NET.SOCK_DGRAM)
@@ -12,7 +12,7 @@
     
     reset_clients = 𝕊↦(🢖Clients≔{})
     
-    ⊢ transmit(𝕊, data, target=□):
+    ⊢ transmit(𝕊, data, target="0.0.0.0"):
         B = ⑴🢖Sock_B.sendto(data.encode(), (x, 🢖PORT_B))
         # Default broadcast, if given a target send message to client uniquely
         B(target) ¿target¡ ⁅B(c)∀c∈🢖Clients.values()⁆
