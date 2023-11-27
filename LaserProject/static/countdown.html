@@ -9,16 +9,23 @@
         }
     </style>
 </head>
+
 <body>
-    
-<div class="countdown-container">
-    <div class="circle">
-        <div id="countdown">10</div>
+<video autoPlay muted loop id="video-background">
+    <source src="./videos/synth_background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+</video>
+
+<div class="fadeIn">
+    <div class="countdown-container">
+        <div class="circle">
+            <div id="countdown">15</div>
+        </div>
     </div>
 </div>
 
 <audio autoplay>
-    <source src="sounds/test.mp3" type="audio/mpeg">
+    <source src="sounds/Track01.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
@@ -33,13 +40,12 @@
         } else if(currentCount == 0) {
             countdownElement.innerHTML = "Begin!";
         } else {
-            window.location.href = "/game.html";
+            countdownElement.innerHTML = "BEGIN";
         }
     }
 
     // Update the countdown every second
     var countdownInterval = setInterval(updateCountdown, 1000);
 </script>
-
 </body>
 </html>
