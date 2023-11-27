@@ -88,8 +88,8 @@ Player = ⑵ℵ(name=x, score=y, B=𝔽)
                       "red": TS(🢖teamsᴿ),
                     "green": TS(🢖teamsᴳ) },
                  "actions": {
-                      "red": 🢖actionsᴿ,
-                    "green": 🢖actionsᴳ } }
+                      "red": 🢖actionsᴿ₋₁₀﹕ᴙ,
+                    "green": 🢖actionsᴳ₋₁₀﹕ᴙ } }
         ¿🢖stage≡2:
             data["start_time"] = getattr(𝕊, "start_time", ¯1)
         ⸘🢖stage≡3:
